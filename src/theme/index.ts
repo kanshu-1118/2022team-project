@@ -1,7 +1,18 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const colors = {
-  example: 'tomato',
+  orange500: '#F29A2E',
+  orange300: '#F2B950',
+  pink500: '#ED4076',
+  pink300: '#F2798F',
+  green500: '#04AFAA',
+  green300: '#27CFBE',
+  violet500: '#6148BE',
+  violet300: '#826AD9',
+  skyblue500: '#049DD9',
+  skyblue300: '#36C8D9',
+  red500: '#EA4242',
+  red300: '#F25C5C',
 };
 const styles = {
   global: {
@@ -11,7 +22,7 @@ const styles = {
     body: {
       color: 'black',
       fontSize: '1.4rem',
-      fontFamily: 'body',
+      fontFamily: '"M PLUS Rounded 1c", sans-serif',
       a: {
         textDecoration: 'none',
       },
@@ -26,9 +37,6 @@ const styles = {
       background: 'tomato',
     },
   },
-};
-const fonts = {
-  body: "'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif",
 };
 const breakpoints = {
   sm: '500px',
@@ -64,7 +72,6 @@ const textStyles = {
 const theme = extendTheme({
   styles,
   colors,
-  fonts,
   textStyles,
   breakpoints,
 });
