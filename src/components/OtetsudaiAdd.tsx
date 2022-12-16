@@ -1,32 +1,57 @@
-import { FC, Key } from 'react';
-import { Flex, Text, Box, color } from '@chakra-ui/react';
-import OriginalSpacer from './OriginalSpacer';
-import { categoryType } from '../types/category';
-import { category } from '../libs/category';
-
-import Icon from '../assets/vercel';
-
-const hoge: {
-  title: string;
-  category: number;
-}[] = [
-  { title: 'くつならべ', category: 2 },
-  { title: 'くつならべ', category: 0 },
-];
+import { FC } from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 
 const OtetsudaiAdd: FC = () => {
   return (
-    <Flex>
-      <Text color="pink300" fontSize="2rem">
+    <Flex alignItems="center" w="fit-content" pos="relative">
+      <Text
+        display="flex"
+        alignItems="center"
+        h="64px"
+        color="pink300"
+        bg="white"
+        p="0 48px 0 24px"
+        fontSize="2rem"
+        borderWidth="4px"
+        borderStyle="solid"
+        borderColor="pink300"
+        borderRadius="9999px"
+      >
         お手伝いを追加する
       </Text>
-      <Box
+      <Flex
+        justifyContent="center"
+        alignItems="center"
         w="88px"
         h="88px"
-        bg="pink300"
+        bg="url('./img/parts_highlight.svg'), linear-gradient(#F2798F, #F2798F)"
+        bgRepeat="no-repeat, no-repeat"
+        bgPosition="top 12px left 12px, center"
         border="4px solid #ffffff"
         borderRadius="9999px"
-        boxShadow="-4px -4px 0 #ED4076 inset"
+        boxShadow="-3px -3px 0 #ED4076 inset"
+        pos="absolute"
+        inset="auto -44px auto auto"
+        sx={{
+          '&::before': {
+            content: "''",
+            display: 'block',
+            width: '8px',
+            height: '32px',
+            background: 'white',
+            borderRadius: '3px',
+            pos: 'absolute',
+          },
+          '&::after': {
+            content: "''",
+            display: 'block',
+            width: '32px',
+            height: '8px',
+            background: 'white',
+            borderRadius: '3px',
+            pos: 'absolute',
+          },
+        }}
       />
     </Flex>
   );
