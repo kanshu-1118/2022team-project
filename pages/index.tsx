@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import { Box, Flex } from '@chakra-ui/react';
 import OtetsudaiBtn from '../src/components/OtetsudaiBtn';
 import OtetsudaiAdd from '../src/components/OtetsudaiAdd';
+import otatudaicategory from './OtetudaiArray';
+import OtetudaiArray from './OtetudaiArray';
 
 
 const Home: NextPage = () => {
@@ -13,8 +15,8 @@ const Home: NextPage = () => {
       bgSize="cover"
       bgPosition="center bottom"
     >
-      <Box>おてつだいず！！！</Box>
-      <OtetsudaiBtn />
+      {/* <Box>おてつだいず！！！</Box> */}
+      {/* <OtetsudaiBtn />
       <OtetsudaiAdd />
       <Flex w="240px" h="56px">
         <Box
@@ -25,7 +27,8 @@ const Home: NextPage = () => {
           h="100%"
           objectFit="contain"
         />
-      </Flex>
+      </Flex> */}
+      <OtetudaiArray />
     </Box>
   );
 };

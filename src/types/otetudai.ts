@@ -1,16 +1,16 @@
 import { CateFile, StarFile, otetudaiArray } from "./otetudaiType"
 
 const StarArray : StarFile = {
-    1:"",
-    2:"",
-    3:"",
+    1:"./img/1star.svg",
+    2:"./img/2star.svg",
+    3:"./img/3star.svg",
 }
 const CateArray : CateFile = {
-    1: "",
-    2: "",
-    3: "",
-    4: "",
-    5: "",
+    1: "./img/icon_kitchen.svg",
+    2: "./img/icon_living.svg",
+    3: "./img/icon_bathroom.svg",
+    4: "./img/icon_washing.svg",
+    5: "./img/icon_other.svg",
 }
 
 const otetudai : otetudaiArray = {
@@ -43,7 +43,7 @@ const otetudai : otetudaiArray = {
             categoryHiragana: "しょくざいをきる",
             categoryStar: StarArray[1],
         },{
-            categoryName: "テーブルに料理を運ぶ",
+            categoryName: "テーブルに\n料理を運ぶ",
             categoryImg: CateArray[1],
             categoryHiragana: "テーブルにりょうりをはこぶ",
             categoryStar: StarArray[3],
@@ -56,7 +56,7 @@ const otetudai : otetudaiArray = {
         {
         groupName : "リビング",
         categoryAbout : [{
-            categoryName: "おもちゃを片付ける",
+            categoryName: "おもちゃを\n片付ける",
             categoryImg: CateArray[2],
             categoryHiragana: "おもちゃをかたずける",
             categoryStar: StarArray[1],
@@ -107,7 +107,7 @@ const otetudai : otetudaiArray = {
             categoryHiragana: "せんたくをする",
             categoryStar: StarArray[3],
         },{
-            categoryName: "洗濯物を片付ける",
+            categoryName: "洗濯物を\n片付ける",
             categoryImg: CateArray[4],
             categoryHiragana: "せんたくものをかたづける",
             categoryStar: StarArray[2],
@@ -122,7 +122,7 @@ const otetudai : otetudaiArray = {
             categoryHiragana: "せんたくものをたたむ",
             categoryStar: StarArray[2],
         },{
-            categoryName: "洗濯物を取り込む",
+            categoryName: "洗濯物を\n取り込む",
             categoryImg: CateArray[4],
             categoryHiragana: "せんたくものをとりこむ",
             categoryStar: StarArray[3],
@@ -135,12 +135,12 @@ const otetudai : otetudaiArray = {
         {
         groupName : "その他",
         categoryAbout : [{
-            categoryName: "ペットのお世話",
+            categoryName: "ペットの\nお世話",
             categoryImg: CateArray[5],
             categoryHiragana: "ぺっとのおせわ",
             categoryStar: StarArray[3],
         },{
-            categoryName: "新聞を取りに行く",
+            categoryName: "新聞を\n取りに行く",
             categoryImg: CateArray[5],
             categoryHiragana: "しんぶんをとりにいく",
             categoryStar: StarArray[2],
@@ -150,7 +150,7 @@ const otetudai : otetudaiArray = {
             categoryHiragana: "おふとんをほす",
             categoryStar: StarArray[3],
         },{
-            categoryName: "お布団をたたむ",
+            categoryName: "お布団を\nたたむ",
             categoryImg: CateArray[5],
             categoryHiragana: "おふとんをたたむ",
             categoryStar: StarArray[2],
@@ -160,7 +160,7 @@ const otetudai : otetudaiArray = {
             categoryHiragana: "くつならべ",
             categoryStar: StarArray[1],
         },{
-            categoryName: "郵便物を撮りに行く",
+            categoryName: "郵便物を\n撮りに行く",
             categoryImg: CateArray[5],
             categoryHiragana: "ゆうびんぶつをとりにいく",
             categoryStar: StarArray[2],
