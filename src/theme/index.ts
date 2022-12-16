@@ -13,6 +13,7 @@ const colors = {
   skyblue300: '#36C8D9',
   red500: '#EA4242',
   red300: '#F25C5C',
+  white: '#FFFFFF',
 };
 const styles = {
   global: {
