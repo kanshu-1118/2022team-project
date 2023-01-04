@@ -1,24 +1,18 @@
-import { FC, Key } from 'react';
-import { Flex, Text, Box, color } from '@chakra-ui/react';
-import OriginalSpacer from './OriginalSpacer';
-import { categoryType } from '../types/category';
+import { FC } from 'react';
+import { Flex } from '@chakra-ui/react';
 import { category } from '../libs/category';
-
-import Icon from '../assets/vercel';
-
-const test = [1, 2, 3];
 
 const hoge: {
   title: string;
   category: number;
 }[] = [
   { title: 'くつならべ', category: 2 },
-  { title: 'くつならべ', category: 0 },
+  // { title: 'くつならべ', category: 0 },
 ];
 
 const OtetsudaiBtn: FC = () => {
   return (
-    <Flex as="ul" flexWrap="wrap" gap="24px 16px">
+    <Flex justifyContent="center" flexWrap="wrap" as="ul" gap="24px 16px">
       {hoge.map(
         (
           item: {
@@ -31,7 +25,7 @@ const OtetsudaiBtn: FC = () => {
             key={item.category + i}
             alignItems="center"
             as="li"
-            w="280px"
+            w="272px"
             h="80px"
             color={category[item.category].color.dark}
             bg="#F5F3E4"
@@ -59,7 +53,7 @@ const OtetsudaiBtn: FC = () => {
               '&::after': {
                 content: "''",
                 display: 'block',
-                background: `url("img/icon_${
+                background: `url("../img/icon_${
                   category[item.category].categoryEn
                 }.svg")`,
                 backgroundRepeat: 'no-repeat',

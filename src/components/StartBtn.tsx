@@ -15,11 +15,12 @@ const text: {
     { text: 'ちがうよ', bgColor: '#36C8D9', shadowColor: '#049DD9' },
     { text: 'あってる！', bgColor: '#F2798F', shadowColor: '#ED4076' },
   ],
+  [{ text: 'はじめよう！', bgColor: '#F25C5C', shadowColor: '#EA4242' }],
 ];
 
 const StartBtn: FC<Props> = ({ index }) => {
   return (
-    <Flex as="ul" flexWrap="wrap" gap="24px 16px">
+    <Flex as="ul" flexWrap="wrap" gap="24px 16px" fontSize="3.3rem">
       {text[index].map((item, i: number) => (
         <Flex as="li" key={item.text + i} pos="relative">
           <Center

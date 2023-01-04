@@ -10,28 +10,28 @@ const OtetsudaiAdd: FC = () => {
         h="64px"
         color="pink300"
         bg="white"
-        p="0 48px 0 24px"
+        p="0 48px 0 20px"
         fontSize="2rem"
         borderWidth="4px"
         borderStyle="solid"
         borderColor="pink300"
         borderRadius="9999px"
       >
-        お手伝いを追加する
+        おてつだいを追加
       </Text>
       <Flex
         justifyContent="center"
         alignItems="center"
-        w="88px"
-        h="88px"
-        bg="url('./img/parts_highlight.svg'), linear-gradient(#F2798F, #F2798F)"
+        w="80px"
+        h="80px"
+        bg="url('../img/parts_highlight.svg'), linear-gradient(#F2798F, #F2798F)"
         bgRepeat="no-repeat, no-repeat"
         bgPosition="top 12px left 12px, center"
         border="4px solid #ffffff"
         borderRadius="9999px"
         boxShadow="-3px -3px 0 #ED4076 inset"
         pos="absolute"
-        inset="auto -44px auto auto"
+        inset="auto -40px auto auto"
         sx={{
           '&::before': {
             content: "''",
