@@ -65,6 +65,23 @@ const textStyles = {
   start: {
     color: 'orange500',
   },
+  startNickname: {
+    width: '224px',
+    height: '224px',
+    background: 'white',
+    fontSize: '5rem',
+    borderStyle: 'solid',
+    borderWidth: '6px',
+    borderRadius: '16px',
+    textAlign: 'center',
+  },
+  startAge: {
+    width: '200px',
+    height: '184px',
+    color: 'orange500',
+    borderRadius: '16px',
+    fontSize: '12rem',
+  },
   boxHeadingTemplate: {
     fontSize: '2.4rem',
     textAlign: 'center',
