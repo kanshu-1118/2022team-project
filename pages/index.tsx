@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import { Box, Center, Flex } from '@chakra-ui/react';
 import Logo from '../src/components/Logo';
-import StartBtn from '../src/components/StartBtn';
+import StartBtn from '../src/components/Btn';
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       pb="24px"
     >
       <Logo size="90vw" />
-      <StartBtn index={2} />
+      <StartBtn dataIndex={0} path="start" />
     </Center>
   );
 };

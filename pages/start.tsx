@@ -1,12 +1,12 @@
 import type { NextPage } from 'next';
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { startingQuestionType } from '../src/types/startingQuestion';
 import StartHeading from '../src/components/StartHeading';
 import StartConfirmText from '../src/components/StartConfirmText';
+import Btn from '../src/components/Btn';
 
 let editName: string = '';
-
 const nameFunc = (e: any) => {
   editName = e.target.value;
 };
@@ -20,10 +20,10 @@ const Start: NextPage = () => {
   const [ageIndex, setAgeIndex] = useState<number>(2);
   const [use, setUse] = useState<number>(0);
   const [slide, setSlide] = useState<number>(0);
+  const [firestoreData, setFirestoreData] = useState<any>();
 
   const nicknameArray = ['ちゃん', 'くん', 'さん'];
   const ageArray = [3, 4, 5, 6, 7, 8];
-  const useArray = [displayNickname, 'お母さん\nお父さん'];
   const btnObj: {
     text: string;
     bgColor: string;
@@ -35,16 +35,22 @@ const Start: NextPage = () => {
       { text: 'あってる！', bgColor: '#F2798F', shadowColor: '#ED4076' },
     ],
   ];
+  const useArray = [displayNickname, 'お母さん\nお父さん'];
 
-  useEffect(() => {
-    setName(editName);
-  }, [editName]);
-
-  const slideFunc = (i: number, index: number) => {
-    if (index === 0 || (index === 1 && i === 1)) {
-      setSlide(slide + 1);
-      console.log(slide);
-    } else if (index === 1 && i === 0) {
+  const slideFunc = (i: number, slideIndex: number) => {
+    if (slideIndex === 0 || (slideIndex === 1 && i === 1)) {
+      if (slideIndex === 0) {
+        setName(editName);
+        setNickname(name + nicknameArray[0]);
+        setDisplayNickname(name + '\n' + nicknameArray[0]);
+        if (editName.length === 0) {
+        } else {
+          setSlide(slide + 1);
+        }
+      } else {
+        setSlide(slide + 1);
+      }
+    } else if (slideIndex === 1 && i === 0) {
       setSlide(slide - 1);
     }
   };
@@ -60,29 +66,56 @@ const Start: NextPage = () => {
   const useFunc = (i: number) => {
     setUse(i);
   };
-  // @ts-ignore
-  const StartBtn = ({ index }) => {
+  const setFireStoreFunc = () => {
+    setFirestoreData({
+      name: name,
+      nicknameIndex: nicknameNumber,
+      age: age,
+      useIndex: use,
+    });
+  };
+
+  const StartBtn = ({ data }: { data: number }) => {
     return (
       <Flex as="ul" flexWrap="wrap" gap="24px 16px" fontSize="3.3rem">
-        {btnObj[index].map((item, i: number) => (
+        {btnObj[data].map((item, i: number) => (
           <Flex
             as="li"
-            onClick={() => slideFunc(i, index)}
+            onClick={() => slideFunc(i, data)}
             key={item.text + i}
             pos="relative"
+            // sx={{
+            //   ...(name === ''
+            //     ? {
+            //         pointerEvents: 'none',
+            //       }
+            //     : {
+            //         pointerEvents: 'auto',
+            //       }),
+            // }}
           >
             <Center
               as="button"
               w="280px"
               h="80px"
               color="white"
-              bg={item.bgColor}
               m="5px"
               borderRadius="9999px"
-              boxShadow={`4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`}
               pos="relative"
               zIndex="3"
+              background={item.bgColor}
+              boxShadow={`4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`}
               sx={{
+                // ...(name === ''
+                //   ? {
+                //       background: 'black300',
+                //       boxShadow:
+                //         '4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 #9c9c9c inset',
+                //     }
+                //   : {
+                //       background: item.bgColor,
+                //       boxShadow: `4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`,
+                //     }),
                 '&::before': {
                   content: "''",
                   display: 'block',
@@ -118,11 +151,10 @@ const Start: NextPage = () => {
       <Box
         as="input"
         onChange={(e) => nameFunc(e)}
+        defaultValue={name}
         placeholder="タッチして入力してね！"
         w="60vw"
         h="224px"
-        // h="160px"
-        // mb="60px"
         fontSize="5rem"
         borderStyle="string"
         borderWidth="4px"
@@ -288,11 +320,11 @@ const Start: NextPage = () => {
     },
     {
       question: {
-        heading: 'さいごに、だれがつかうかおしえてね！',
+        heading: 'さいごに、だれがつかうかをおしえてね！',
         component: <StartUseInput />,
       },
       confirm: {
-        heading: '使うのは',
+        heading: 'つかうのは',
         component: <StartUseConfirm />,
       },
     },
@@ -328,7 +360,7 @@ const Start: NextPage = () => {
             <Center>
               <StartHeading data={item.question.heading} />
               {item.question.component}
-              <StartBtn index={0} />
+              <StartBtn data={0} />
             </Center>
             <Center>
               <StartHeading data={item.confirm.heading} />
@@ -336,10 +368,24 @@ const Start: NextPage = () => {
                 {item.confirm.component}
                 <StartConfirmText />
               </Flex>
-              <StartBtn index={1} />
+              <StartBtn data={1} />
             </Center>
           </Flex>
         ))}
+        <Center
+          flexDirection="column"
+          gap="72px"
+          w="100vw"
+          h="100vh"
+          textStyle="start"
+        >
+          <Text fontSize="5rem">
+            {use === 0 ? <>{nickname}</> : <>{nickname}のお母さんお父さん</>}
+            <br />
+            <>よろしくおねがいします！</>
+          </Text>
+          <Btn dataIndex={1} path={use === 0 ? 'child' : 'parents'} />
+        </Center>
       </Flex>
     </Flex>
   );
