@@ -48,7 +48,7 @@ const StartBtn: FC<Props> = ({ dataIndex, path }) => {
           h="80px"
           color="white"
           bg={data[dataIndex].bgColor}
-          m="8px"
+          // m="8px"
           borderRadius="9999px"
           // boxShadow={`4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${data[dataIndex].shadowColor} inset`}
           pos="relative"
@@ -72,6 +72,7 @@ const StartBtn: FC<Props> = ({ dataIndex, path }) => {
                   boxShadow: `4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${data[dataIndex].shadowColor} inset`,
                   // '&::before': {
                   // },
+                  fontSize: '3rem',
                 }
               : {
                   width: '720px',
@@ -91,18 +92,19 @@ const StartBtn: FC<Props> = ({ dataIndex, path }) => {
           bg="white"
           borderRadius="9999px"
           pos="absolute"
-          inset="auto"
           sx={{
             ...(dataIndex === 0
               ? {
                   width: 'calc(280px + 10px)',
                   height: 'calc(80px + 10px)',
                   boxShadow: '0 4px 0 #D3D3D3',
+                  inset: '-5px auto auto -5px',
                 }
               : {
                   width: 'calc(720px + 16px)',
                   height: 'calc(160px + 16px)',
                   boxShadow: '0 8px 0 #D3D3D3',
+                  inset: '-8px auto auto -8px',
                 }),
           }}
         />

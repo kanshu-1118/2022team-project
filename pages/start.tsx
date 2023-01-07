@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { startingQuestionType } from '../src/types/startingQuestion';
 import StartHeading from '../src/components/StartHeading';
 import StartConfirmText from '../src/components/StartConfirmText';
@@ -10,6 +10,9 @@ let editName: string = '';
 const nameFunc = (e: any) => {
   editName = e.target.value;
 };
+
+const AGE_ARRAY_WIDTH = 176;
+const AGE_ARRAY_WIDTH_HALF = AGE_ARRAY_WIDTH / 2;
 
 const Start: NextPage = () => {
   const [name, setName] = useState<string>('');
@@ -22,6 +25,7 @@ const Start: NextPage = () => {
   const [slide, setSlide] = useState<number>(0);
   const [firestoreData, setFirestoreData] = useState<any>();
 
+  let ageArrayBox: any = '';
   const nicknameArray = ['ちゃん', 'くん', 'さん'];
   const ageArray = [3, 4, 5, 6, 7, 8];
   const btnObj: {
@@ -37,12 +41,43 @@ const Start: NextPage = () => {
   ];
   const useArray = [displayNickname, 'お母さん\nお父さん'];
 
-  const slideFunc = (i: number, slideIndex: number) => {
+  const slideFunc = (i: number, slideIndex: number, pageIndex: number) => {
+    // console.log(pageIndex);
+
     if (slideIndex === 0 || (slideIndex === 1 && i === 1)) {
       if (slideIndex === 0) {
-        setName(editName);
-        setNickname(name + nicknameArray[0]);
-        setDisplayNickname(name + '\n' + nicknameArray[0]);
+        if (pageIndex === 0) {
+          setName(editName);
+          setNickname(name + nicknameArray[0]);
+          setDisplayNickname(name + '\n' + nicknameArray[0]);
+        } else if (pageIndex === 2) {
+          if (document) {
+            ageArrayBox = document.querySelectorAll('.ageArrayBox')[0];
+          }
+          let ageArrayBoxScrollDivision: number = Math.floor(
+            ageArrayBox.scrollLeft / AGE_ARRAY_WIDTH_HALF
+          );
+          // console.log(ageArrayBoxScrollDivision);
+          if (ageArrayBoxScrollDivision === 0) {
+            setAgeIndex(0);
+            setAge(ageArray[0]);
+          } else if (ageArrayBoxScrollDivision < 3) {
+            setAgeIndex(1);
+            setAge(ageArray[1]);
+          } else if (ageArrayBoxScrollDivision < 5) {
+            setAgeIndex(2);
+            setAge(ageArray[2]);
+          } else if (ageArrayBoxScrollDivision < 7) {
+            setAgeIndex(3);
+            setAge(ageArray[3]);
+          } else if (ageArrayBoxScrollDivision < 9) {
+            setAgeIndex(4);
+            setAge(ageArray[4]);
+          } else if (ageArrayBoxScrollDivision < 11) {
+            setAgeIndex(5);
+            setAge(ageArray[5]);
+          }
+        }
         if (editName.length === 0) {
         } else {
           setSlide(slide + 1);
@@ -59,9 +94,56 @@ const Start: NextPage = () => {
     setNickname(name + nicknameArray[i]);
     setDisplayNickname(name + '\n' + nicknameArray[i]);
   };
-  const ageFunc = (i: number) => {
-    setAgeIndex(i);
-    setAge(ageArray[i]);
+  // const ageFunc = (i: number) => {
+  //   setAgeIndex(i);
+  //   setAge(ageArray[i]);
+  // };
+  const ageFunc = (e: any) => {
+    if (document) {
+      ageArrayBox = document.querySelectorAll('.ageArrayBox')[0];
+    }
+    let ageArrayBoxScrollDivision: number = Math.floor(
+      ageArrayBox.scrollLeft / AGE_ARRAY_WIDTH_HALF
+    );
+    if (ageArrayBoxScrollDivision === 0) {
+      ageArrayBox.scrollLeft = 0;
+    } else if (ageArrayBoxScrollDivision < 3) {
+      ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH;
+    } else if (ageArrayBoxScrollDivision < 5) {
+      ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 2;
+    } else if (ageArrayBoxScrollDivision < 7) {
+      ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 3;
+    } else if (ageArrayBoxScrollDivision < 9) {
+      ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 4;
+    } else if (ageArrayBoxScrollDivision < 11) {
+      ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 5;
+    }
+    // setAgeIndex(ageArrayBoxScrollIndex);
+    // setAge(ageArray[ageArrayBoxScrollIndex]);
+    // if (ageArrayBoxScrollDivision === 0) {
+    //   ageArrayBox.scrollLeft = 0;
+    // } else if (ageArrayBoxScrollDivision === 1) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH;
+    // } else if (ageArrayBoxScrollDivision === 2) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH;
+    // } else if (ageArrayBoxScrollDivision === 3) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 2;
+    // } else if (ageArrayBoxScrollDivision === 4) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 2;
+    // } else if (ageArrayBoxScrollDivision === 5) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 3;
+    // } else if (ageArrayBoxScrollDivision === 6) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 3;
+    // } else if (ageArrayBoxScrollDivision === 7) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 4;
+    // } else if (ageArrayBoxScrollDivision === 8) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 4;
+    // } else if (ageArrayBoxScrollDivision === 9) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 5;
+    // } else if (ageArrayBoxScrollDivision === 10) {
+    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 5;
+    // }
+    // }
   };
   const useFunc = (i: number) => {
     setUse(i);
@@ -75,13 +157,13 @@ const Start: NextPage = () => {
     });
   };
 
-  const StartBtn = ({ data }: { data: number }) => {
+  const StartBtn = ({ data, index }: { data: number; index: number }) => {
     return (
       <Flex as="ul" flexWrap="wrap" gap="24px 16px" fontSize="3.3rem">
         {btnObj[data].map((item, i: number) => (
           <Flex
             as="li"
-            onClick={() => slideFunc(i, data)}
+            onClick={() => slideFunc(i, data, index)}
             key={item.text + i}
             pos="relative"
             // sx={{
@@ -215,28 +297,56 @@ const Start: NextPage = () => {
   };
   const StartAgeInput = () => {
     return (
-      <Flex w="100vw" overflow="scroll">
-        <Flex w={`calc(240px * ${ageArray.length})`}>
-          {ageArray.map((item: number, i: number) => (
-            <Center
-              onClick={() => ageFunc(i)}
-              key={item}
-              fontSize="12rem"
-              textStyle="startAge"
-              sx={{
-                ...(i === ageIndex && {
-                  background: 'white',
-                  borderWidth: '10px',
-                  borderStyle: 'solid',
-                  borderColor: 'orange300',
-                }),
-              }}
-            >
-              {item}
-            </Center>
-          ))}
-        </Flex>
-      </Flex>
+      <Center w="100vw" pos="relative">
+        <Box
+          className="ageArrayBox"
+          w="100vw"
+          overflow="scroll"
+          transition="overflow 0.2s"
+        >
+          <Center
+            // className="ageArray"
+            w={`calc(176px * ${ageArray.length})`}
+            m="0 calc(50vw - 176px / 2)"
+          >
+            {ageArray.map((item: number, i: number) => (
+              <Center
+                // onClick={() => ageFunc(i)}
+                // onTouchStart={(e) => ageTouchStart(e)}
+                // onTouchEnd={(e) => ageTouchEnd(e)}
+                onTouchEnd={(e) => ageFunc(e)}
+                key={item}
+                w="176px"
+                h="184px"
+                fontSize="12rem"
+                pos="relative"
+                zIndex="3"
+                // textStyle="startAge"
+                // sx={{
+                //   ...(i === ageIndex && {
+                //     background: 'white',
+                //     borderWidth: '10px',
+                //     borderStyle: 'solid',
+                //     borderColor: 'orange300',
+                //   }),
+                // }}
+              >
+                {item}
+              </Center>
+            ))}
+          </Center>
+        </Box>
+        <Center
+          // w="240px"
+          background="white"
+          borderWidth="10px"
+          borderStyle="solid"
+          borderColor="orange300"
+          pos="absolute"
+          inset="auto auto auto auto"
+          textStyle="startAge"
+        />
+      </Center>
     );
   };
   const StartAgeConfirm = () => {
@@ -360,7 +470,7 @@ const Start: NextPage = () => {
             <Center>
               <StartHeading data={item.question.heading} />
               {item.question.component}
-              <StartBtn data={0} />
+              <StartBtn data={0} index={i} />
             </Center>
             <Center>
               <StartHeading data={item.confirm.heading} />
@@ -368,7 +478,7 @@ const Start: NextPage = () => {
                 {item.confirm.component}
                 <StartConfirmText />
               </Flex>
-              <StartBtn data={1} />
+              <StartBtn data={1} index={i} />
             </Center>
           </Flex>
         ))}
