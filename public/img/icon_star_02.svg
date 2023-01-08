@@ -1,0 +1,37 @@
+<svg id="_レイヤー_1-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58.121" height="58" viewBox="0 0 58.121 58">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.515" cy="0.399" r="0.51" gradientTransform="matrix(0.962, 0.004, -0.004, 1, 0.027, -0.003)" gradientUnits="objectBoundingBox">
+      <stop offset="0.138" stop-color="#e5e4df"/>
+      <stop offset="1" stop-color="#bcbcbc"/>
+    </radialGradient>
+    <linearGradient id="linear-gradient" x1="0.497" y1="0.845" x2="0.509" y2="-0.279" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#a0a0a0"/>
+      <stop offset="0.882" stop-color="#c6c6c6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.488" y1="1.625" x2="0.504" y2="-0.001" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e2e2e2"/>
+      <stop offset="1" stop-color="#e8e8e6"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.677" y1="-0.527" x2="0.681" y2="1.199" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fffcff"/>
+      <stop offset="1" stop-color="#e4e5e3"/>
+    </linearGradient>
+  </defs>
+  <g id="グループ_2191" data-name="グループ 2191" transform="translate(0 0)">
+    <path id="パス_3279" data-name="パス 3279" d="M57.824,21.386c-1.313-3.942-6.806-6.246-16.783-7.032C37.153,5.293,33.218.876,29.028.861,24.806.844,20.874,5.285,17.021,14.432c-9.972.851-15.449,3.19-16.736,7.142s1.784,9,9.387,15.42c-1.968,8.369-1.8,13.856.508,16.761a6.382,6.382,0,0,0,5.251,2.327h0c3.382.012,7.876-1.7,13.72-5.222,5.788,3.44,10.245,5.12,13.611,5.133a6.428,6.428,0,0,0,5.35-2.326c2.316-2.911,2.457-8.41.427-16.8,7.56-6.47,10.6-11.538,9.284-15.481Z" transform="translate(0 1.918)" fill="#2d2d2d" opacity="0.45"/>
+    <path id="パス_3280" data-name="パス 3280" d="M57.824,20.527c-1.313-3.943-6.806-6.246-16.783-7.033C37.153,4.433,33.218.017,29.028,0c-4.222-.016-8.154,4.425-12.007,13.572C7.048,14.424,1.572,16.762.284,20.713s1.784,9,9.387,15.42C7.7,44.5,7.871,49.99,10.18,52.894a6.379,6.379,0,0,0,5.251,2.327h0c3.382.013,7.876-1.7,13.72-5.222,5.788,3.44,10.245,5.12,13.611,5.133a6.425,6.425,0,0,0,5.35-2.326c2.316-2.911,2.457-8.41.427-16.8,7.56-6.471,10.6-11.539,9.284-15.481Z" transform="translate(0 0)" fill="#6b6b6b"/>
+    <path id="パス_3281" data-name="パス 3281" d="M28.275,47.664Q3.271,63.043,10.193,34.8q-22.565-18.69,6.821-20.928,11.057-26.931,22.3-.072,29.4,2.046,6.96,20.882,7.11,28.2-18,12.98Z" transform="translate(0.873 0.872)" fill="url(#radial-gradient)"/>
+    <g id="グループ_2188" data-name="グループ 2188" transform="translate(9.082 34.373)">
+      <path id="パス_3282" data-name="パス 3282" d="M3.748,15.66q-4.53,24.465,19.339,9.576Q47.8,40.43,42.042,13.976C25.885,8.423,10.985,12.725,3.748,15.66Z" transform="translate(-3.026 -11.286)" opacity="0.67" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="グループ_2189" data-name="グループ 2189" transform="translate(9.119 43.108)">
+      <path id="パス_3283" data-name="パス 3283" d="M37.745,20.664c-6.5-.6-14.2-6.673-14.2-6.673s-6.331,5.132-13.088,6.416c-3.277.622-5.628-2.254-7.181-5.383q-.177,1.4-.237,2.639.8,13.538,20.028,1.544Q41.666,30.642,43,18.48a5.958,5.958,0,0,1-5.258,2.184Z" transform="translate(-3.036 -13.991)" fill="url(#linear-gradient-2)"/>
+    </g>
+    <g id="グループ_2190" data-name="グループ 2190" transform="translate(3.32 3.251)">
+      <path id="パス_3284" data-name="パス 3284" d="M37.192,14.1q-10.537-26.218-20.9.071C.051,15.457-3.036,20.42,6.11,30.079,13.58,27.59,29.386,23.8,46.5,31,56.65,20.721,53.931,15.311,37.192,14.1Z" transform="translate(-1.028 -1.007)" fill="url(#linear-gradient-3)"/>
+    </g>
+    <path id="パス_3285" data-name="パス 3285" d="M11.66,1.718S8.4.461,8.852,3.263s6.5,8.271,8.525,8.124-1.367-8.25-5.718-9.668Z" transform="translate(18.864 3.203)" fill="#fff"/>
+    <path id="パス_3286" data-name="パス 3286" d="M22.214,6.823S17.42,5.036,14.05,5.612s1.671,3.29,6.467,4.319,5.816-1.577,1.7-3.108Z" transform="translate(27.512 11.591)" fill="#fff"/>
+    <path id="パス_3287" data-name="パス 3287" d="M39.406,11.549q6.343,27.15-17,12.294Q-.956,38.931,5.381,11.41l-1.1,0c.076.066.148.132.226.2q-6.852,29.35,17.9,13.366Q47.224,40.764,40.233,11.552l-.826,0Z" transform="translate(6.743 23.353)" fill="#d8d8d8" opacity="0.66"/>
+  </g>
+</svg>

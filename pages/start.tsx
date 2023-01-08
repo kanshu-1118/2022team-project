@@ -42,8 +42,6 @@ const Start: NextPage = () => {
   const useArray = [displayNickname, 'お母さん\nお父さん'];
 
   const slideFunc = (i: number, slideIndex: number, pageIndex: number) => {
-    // console.log(pageIndex);
-
     if (slideIndex === 0 || (slideIndex === 1 && i === 1)) {
       if (slideIndex === 0) {
         if (pageIndex === 0) {
@@ -57,7 +55,6 @@ const Start: NextPage = () => {
           let ageArrayBoxScrollDivision: number = Math.floor(
             ageArrayBox.scrollLeft / AGE_ARRAY_WIDTH_HALF
           );
-          // console.log(ageArrayBoxScrollDivision);
           if (ageArrayBoxScrollDivision === 0) {
             setAgeIndex(0);
             setAge(ageArray[0]);
@@ -94,11 +91,8 @@ const Start: NextPage = () => {
     setNickname(name + nicknameArray[i]);
     setDisplayNickname(name + '\n' + nicknameArray[i]);
   };
-  // const ageFunc = (i: number) => {
-  //   setAgeIndex(i);
-  //   setAge(ageArray[i]);
-  // };
-  const ageFunc = (e: any) => {
+
+  const ageFunc = () => {
     if (document) {
       ageArrayBox = document.querySelectorAll('.ageArrayBox')[0];
     }
@@ -118,32 +112,6 @@ const Start: NextPage = () => {
     } else if (ageArrayBoxScrollDivision < 11) {
       ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 5;
     }
-    // setAgeIndex(ageArrayBoxScrollIndex);
-    // setAge(ageArray[ageArrayBoxScrollIndex]);
-    // if (ageArrayBoxScrollDivision === 0) {
-    //   ageArrayBox.scrollLeft = 0;
-    // } else if (ageArrayBoxScrollDivision === 1) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH;
-    // } else if (ageArrayBoxScrollDivision === 2) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH;
-    // } else if (ageArrayBoxScrollDivision === 3) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 2;
-    // } else if (ageArrayBoxScrollDivision === 4) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 2;
-    // } else if (ageArrayBoxScrollDivision === 5) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 3;
-    // } else if (ageArrayBoxScrollDivision === 6) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 3;
-    // } else if (ageArrayBoxScrollDivision === 7) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 4;
-    // } else if (ageArrayBoxScrollDivision === 8) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 4;
-    // } else if (ageArrayBoxScrollDivision === 9) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 5;
-    // } else if (ageArrayBoxScrollDivision === 10) {
-    //   ageArrayBox.scrollLeft = AGE_ARRAY_WIDTH * 5;
-    // }
-    // }
   };
   const useFunc = (i: number) => {
     setUse(i);
@@ -305,31 +273,18 @@ const Start: NextPage = () => {
           transition="overflow 0.2s"
         >
           <Center
-            // className="ageArray"
             w={`calc(176px * ${ageArray.length})`}
             m="0 calc(50vw - 176px / 2)"
           >
             {ageArray.map((item: number, i: number) => (
               <Center
-                // onClick={() => ageFunc(i)}
-                // onTouchStart={(e) => ageTouchStart(e)}
-                // onTouchEnd={(e) => ageTouchEnd(e)}
-                onTouchEnd={(e) => ageFunc(e)}
+                onTouchEnd={() => ageFunc()}
                 key={item}
                 w="176px"
                 h="184px"
                 fontSize="12rem"
                 pos="relative"
                 zIndex="3"
-                // textStyle="startAge"
-                // sx={{
-                //   ...(i === ageIndex && {
-                //     background: 'white',
-                //     borderWidth: '10px',
-                //     borderStyle: 'solid',
-                //     borderColor: 'orange300',
-                //   }),
-                // }}
               >
                 {item}
               </Center>
@@ -337,7 +292,6 @@ const Start: NextPage = () => {
           </Center>
         </Box>
         <Center
-          // w="240px"
           background="white"
           borderWidth="10px"
           borderStyle="solid"

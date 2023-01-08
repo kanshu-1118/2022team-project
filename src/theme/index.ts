@@ -103,6 +103,9 @@ const textStyles = {
     position: 'absolute',
     inset: 'calc(-28px / 2) auto auto calc(-28px / 2)',
   },
+  modalTemplate: {
+    
+  },
 };
 
 const theme = extendTheme({

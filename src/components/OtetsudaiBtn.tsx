@@ -25,7 +25,7 @@ const OtetsudaiBtn: FC = () => {
             key={item.category + i}
             alignItems="center"
             as="li"
-            w="272px"
+            w="264px"
             h="80px"
             color={category[item.category].color.dark}
             bg="#F5F3E4"

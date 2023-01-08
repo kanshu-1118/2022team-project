@@ -5,7 +5,6 @@ import Logo from './Logo';
 
 type Props = {
   dataIndex: number;
-  // text: string;
   path: string;
 };
 
