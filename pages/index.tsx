@@ -4,9 +4,19 @@ import OtetsudaiBtn from '../src/components/OtetsudaiBtn';
 import OtetsudaiAdd from '../src/components/OtetsudaiAdd';
 import otatudaicategory from './OtetudaiArray';
 import OtetudaiArray from './OtetudaiArray';
+import OtetudaiModal from '../src/components/OtetsudaiModal';
+import OtetudaiCateBtn from '../src/components/OtetudaiCateBtn';
+import OtetudaiModalKanryou from '../src/components/OtetsudaiModalKanryou';
+import Array from "../src/types/otetudai"
+import OtetudaiModalZumi from '../src/components/OtetsudaiModalZumi';
+import OtetudaiModalCheck from '../src/components/OtetsudaiModalCheck';
+import OtetudaiModalStanp from '../src/components/OtetsudaiModalStanp';
+
 
 
 const Home: NextPage = () => {
+
+  const Arrays = Array.ArrayList
   return (
     <Box
       minWidth="100vw"
@@ -28,7 +38,13 @@ const Home: NextPage = () => {
           objectFit="contain"
         />
       </Flex> */}
-      <OtetudaiArray />
+      {/* <OtetudaiArray /> */}
+      {/* <OtetudaiModal /> */}
+      {/* <OtetudaiCateBtn /> */}
+      {/* <OtetudaiModalKanryou /> */}
+      {/* <OtetudaiModalZumi /> */}
+      {/* <OtetudaiModalCheck /> */}
+      <OtetudaiModalStanp />
     </Box>
   );
 };

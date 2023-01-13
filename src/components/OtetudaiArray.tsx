@@ -1,7 +1,7 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
 import React from 'react'
-import otetudai from '../src/types/otetudai'
+import otetudai from '../types/otetudai'
 
 const OtetudaiArray : NextComponentType = () => {
 
@@ -50,7 +50,7 @@ const OtetudaiArray : NextComponentType = () => {
 									h={"64px"}
 									alignItems={"center"}
 									justifyContent={"center"}
-									bgColor={"#433c2e"}
+									bgColor={"#F2B950"}
 									borderRadius={"8px"}
 									border={"4px solid #fff"}
 									>
