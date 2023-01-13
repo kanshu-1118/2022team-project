@@ -21,7 +21,7 @@ const OtetudaiCateBtn : NextComponentType = (e) => {
             padding={"0 16px"}
             position={"relative"}
             _after={{
-                content:`""`,
+                content:"",
                 position:"absolute",
                 borderRadius:"20px",
                 top:"0",
