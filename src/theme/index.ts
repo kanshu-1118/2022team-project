@@ -13,6 +13,11 @@ const colors = {
   skyblue300: '#36C8D9',
   red500: '#EA4242',
   red300: '#F25C5C',
+  white: '#FFFFFF',
+  black400: '#808080',
+  black300: '#B3B3B3',
+  black200: '#E3E3E3',
+  cream: '#FFFEF8',
 };
 const styles = {
   global: {
@@ -22,7 +27,7 @@ const styles = {
     body: {
       color: 'black',
       fontSize: '1.4rem',
-      fontFamily: '"M PLUS Rounded 1c", sans-serif',
+      fontFamily: 'body',
       a: {
         textDecoration: 'none',
       },
@@ -36,7 +41,13 @@ const styles = {
     '::-moz-selection': {
       background: 'tomato',
     },
+    pre: {
+      fontFamily: 'body',
+    },
   },
+};
+const fonts = {
+  body: '"M PLUS Rounded 1c", sans-serif',
 };
 const breakpoints = {
   sm: '500px',
@@ -44,22 +55,6 @@ const breakpoints = {
   lg: '820px',
 };
 const textStyles = {
-  pagenation: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '52px',
-    height: '52px',
-    borderRadius: '9999px',
-    transition: '0.2s background',
-    svg: {
-      width: '40px',
-      height: '40px',
-      color: 'white',
-    },
-    '&:hover': {
-      background: 'secondary',
-    },
-  },
   bodyWidth: {
     width: {
       base: '90vw',
@@ -67,11 +62,56 @@ const textStyles = {
     },
     mx: 'auto',
   },
+  start: {
+    color: 'orange500',
+  },
+  startNickname: {
+    width: '224px',
+    height: '224px',
+    background: 'white',
+    fontSize: '5rem',
+    borderStyle: 'solid',
+    borderWidth: '6px',
+    borderRadius: '16px',
+    textAlign: 'center',
+  },
+  startAge: {
+    width: '200px',
+    height: '184px',
+    color: 'orange500',
+    borderRadius: '16px',
+    fontSize: '12rem',
+  },
+  boxHeadingTemplate: {
+    fontSize: '2.4rem',
+    textAlign: 'center',
+  },
+  boxInsideTemplate: {
+    gap: '8px',
+    width: '100%',
+    background: 'cream',
+    borderRadius: '16px',
+    position: 'relative',
+    zIndex: '3',
+  },
+  boxBgTemplate: {
+    width: 'calc(100% + 28px)',
+    height: 'calc(100% + 28px + 4px)',
+    borderWidth: '4px',
+    borderStyle: 'solid',
+    borderRadius: '28px',
+    position: 'absolute',
+    inset: 'calc(-28px / 2) auto auto calc(-28px / 2)',
+  },
+  modalTemplate: {
+    
+  },
 };
 
 const theme = extendTheme({
   styles,
   colors,
+  fonts,
   textStyles,
   breakpoints,
 });
