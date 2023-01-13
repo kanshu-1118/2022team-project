@@ -43,7 +43,15 @@ const LevelBtn: FC = () => {
   const LevelModal = () => {
     return (
       <Center w="100vw" h="100vh" pos="fixed" inset="0 0 auto auto" zIndex="20">
-        <Box w="70vw" h="62vh" color="skyblue500" pos="relative" zIndex="30">
+        <Box
+          w="70vw"
+          maxW="720px"
+          h="62vh"
+          maxH="480px"
+          color="skyblue500"
+          pos="relative"
+          zIndex="30"
+        >
           <Center
             flexDirection="column"
             gap="32px"

@@ -9,7 +9,8 @@ export type otetsudaiDefaultType = {
 export type otetsudaiType = {
   kanji: otetsudaiDefaultType;
   kana: otetsudaiDefaultType;
-  category: categoryType;
+  // category: categoryType;
+  category: number;
   level: 1 | 2 | 3;
 };
 

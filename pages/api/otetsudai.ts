@@ -2,6 +2,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { otetsudaiType } from '../../src/types/otetsudai';
 
+const KITCHEN_INDEX = 0;
+const LIVING_INDEX = 1;
+const BATHROOM_INDEX = 2;
+const WASHING_INDEX = 3;
+const OTHER_INDEX = 4;
+
 export default function otetsudaiApi(
   req: NextApiRequest,
   res: NextApiResponse<otetsudaiType[]>
@@ -18,7 +24,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 2,
     },
     {
@@ -32,7 +38,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 1,
     },
     {
@@ -46,7 +52,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 1,
     },
     {
@@ -60,7 +66,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 1,
     },
     {
@@ -74,7 +80,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 1,
     },
     {
@@ -88,7 +94,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 3,
     },
     {
@@ -102,7 +108,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'kitchen',
+      category: KITCHEN_INDEX,
       level: 3,
     },
     {
@@ -122,7 +128,7 @@ export default function otetsudaiApi(
           'おもちゃがこわれないようにやさしくかたづけよう！',
         ],
       },
-      category: 'living',
+      category: LIVING_INDEX,
       level: 1,
     },
     {
@@ -136,7 +142,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'living',
+      category: LIVING_INDEX,
       level: 1,
     },
     {
@@ -150,7 +156,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'living',
+      category: LIVING_INDEX,
       level: 2,
     },
     {
@@ -164,7 +170,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'living',
+      category: LIVING_INDEX,
       level: 2,
     },
     {
@@ -178,7 +184,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'living',
+      category: LIVING_INDEX,
       level: 2,
     },
     {
@@ -192,7 +198,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'bathroom',
+      category: BATHROOM_INDEX,
       level: 2,
     },
     {
@@ -206,7 +212,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'bathroom',
+      category: BATHROOM_INDEX,
       level: 2,
     },
     {
@@ -220,7 +226,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'washing',
+      category: WASHING_INDEX,
       level: 2,
     },
     {
@@ -234,7 +240,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'washing',
+      category: WASHING_INDEX,
       level: 3,
     },
     {
@@ -248,7 +254,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'washing',
+      category: WASHING_INDEX,
       level: 3,
     },
     {
@@ -262,7 +268,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'washing',
+      category: WASHING_INDEX,
       level: 3,
     },
     {
@@ -276,7 +282,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'washing',
+      category: WASHING_INDEX,
       level: 2,
     },
     {
@@ -290,7 +296,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'washing',
+      category: WASHING_INDEX,
       level: 2,
     },
     {
@@ -304,7 +310,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 3,
     },
     {
@@ -318,7 +324,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 2,
     },
     {
@@ -332,7 +338,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 3,
     },
     {
@@ -346,7 +352,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 2,
     },
     {
@@ -360,7 +366,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 1,
     },
     {
@@ -374,7 +380,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 2,
     },
     {
@@ -388,7 +394,7 @@ export default function otetsudaiApi(
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
-      category: 'other',
+      category: OTHER_INDEX,
       level: 2,
     },
   ]);
