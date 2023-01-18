@@ -1,0 +1,1 @@
+export const otetsudaiApi = 'http://localhost:3000/api/otetsudai';

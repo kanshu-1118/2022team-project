@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { startingQuestionType } from '../src/types/startingQuestion';
-import StartHeading from '../src/components/StartHeading';
-import StartConfirmText from '../src/components/StartConfirmText';
-import Btn from '../src/components/Btn';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { firebaseApp } from '../src/libs/firebase';
+import Logo from '../src/components/Logo';
+import NextLink from 'next/link';
 
 let editName: string = '';
 const nameFunc = (e: any) => {
@@ -23,7 +24,6 @@ const Start: NextPage = () => {
   const [ageIndex, setAgeIndex] = useState<number>(2);
   const [use, setUse] = useState<number>(0);
   const [slide, setSlide] = useState<number>(0);
-  const [firestoreData, setFirestoreData] = useState<any>();
 
   let ageArrayBox: any = '';
   const nicknameArray = ['ちゃん', 'くん', 'さん'];
@@ -40,6 +40,24 @@ const Start: NextPage = () => {
     ],
   ];
   const useArray = [displayNickname, 'お母さん\nお父さん'];
+
+  const StartHeading = ({ data }: { data: any }) => {
+    return (
+      <Text as="h2" textStyle="start">
+        {data}
+      </Text>
+    );
+  };
+  const StartConfirmText = () => {
+    return (
+      <Flex as="p" alignItems="flex-end" gap="8px" textStyle="start">
+        <Text as="span" display="inline-block" pb="4px" fontSize="2.4rem">
+          で
+        </Text>
+        <Text as="span">あってる？</Text>
+      </Flex>
+    );
+  };
 
   const slideFunc = (i: number, slideIndex: number, pageIndex: number) => {
     if (slideIndex === 0 || (slideIndex === 1 && i === 1)) {
@@ -116,13 +134,18 @@ const Start: NextPage = () => {
   const useFunc = (i: number) => {
     setUse(i);
   };
-  const setFireStoreFunc = () => {
-    setFirestoreData({
+  const setFireStoreFunc = async () => {
+    const db = getFirestore(firebaseApp);
+    const col = collection(db, 'user');
+    await addDoc(col, {
       name: name,
+      nickname: nickname,
       nicknameIndex: nicknameNumber,
       age: age,
+      ageIndex: ageIndex,
       useIndex: use,
     });
+    console.log('Firestoreに送信完了');
   };
 
   const StartBtn = ({ data, index }: { data: number; index: number }) => {
@@ -134,15 +157,6 @@ const Start: NextPage = () => {
             onClick={() => slideFunc(i, data, index)}
             key={item.text + i}
             pos="relative"
-            // sx={{
-            //   ...(name === ''
-            //     ? {
-            //         pointerEvents: 'none',
-            //       }
-            //     : {
-            //         pointerEvents: 'auto',
-            //       }),
-            // }}
           >
             <Center
               as="button"
@@ -156,16 +170,6 @@ const Start: NextPage = () => {
               background={item.bgColor}
               boxShadow={`4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`}
               sx={{
-                // ...(name === ''
-                //   ? {
-                //       background: 'black300',
-                //       boxShadow:
-                //         '4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 #9c9c9c inset',
-                //     }
-                //   : {
-                //       background: item.bgColor,
-                //       boxShadow: `4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`,
-                //     }),
                 '&::before': {
                   content: "''",
                   display: 'block',
@@ -351,6 +355,63 @@ const Start: NextPage = () => {
     );
   };
 
+  const StartEnterBtn = () => {
+    return (
+      <NextLink href={use === 0 ? 'child' : 'parents'} passHref>
+        <Box
+          onClick={() => setFireStoreFunc()}
+          as="span"
+          display="block"
+          pos="relative"
+        >
+          <Center
+            as="span"
+            w="280px"
+            h="80px"
+            width="720px"
+            height="160px"
+            color="white"
+            bg="pink300"
+            borderRadius="9999px"
+            boxShadow="8px 8px 0 rgba(255, 255, 255, 0.5) inset, -8px -8px 0 #ED4076 inset"
+            pos="relative"
+            fontSize="4.5rem"
+            zIndex="3"
+            sx={{
+              span: {
+                display: 'inline-block',
+                marginTop: '24px',
+              },
+              '&::before': {
+                content: "''",
+                display: 'block',
+                background: "url('./img/startBtn_highlight.svg')",
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+                width: '28px',
+                height: '40px',
+                position: 'absolute',
+                inset: '10px auto auto 12px',
+              },
+            }}
+          >
+            <Logo size="360px" />
+            <Text as="span">スタート！</Text>
+          </Center>
+          <Box
+            width="calc(720px + 16px)"
+            height="calc(160px + 16px)"
+            boxShadow="0 8px 0 #D3D3D3"
+            inset="-8px auto auto -8px"
+            bg="white"
+            borderRadius="9999px"
+            pos="absolute"
+          />
+        </Box>
+      </NextLink>
+    );
+  };
+
   const startingQuestion: startingQuestionType[] = [
     {
       question: {
@@ -448,7 +509,7 @@ const Start: NextPage = () => {
             <br />
             <>よろしくおねがいします！</>
           </Text>
-          <Btn dataIndex={1} path={use === 0 ? 'child' : 'parents'} />
+          <StartEnterBtn />
         </Center>
       </Flex>
     </Flex>
