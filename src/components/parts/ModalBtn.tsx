@@ -16,7 +16,6 @@ interface ModalProps {
 
 const logon = () => {
     console.log("クリックした");
-    
 }
 
 const Modalbtn = (props :  ModalProps ) => {
