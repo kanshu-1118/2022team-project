@@ -52,6 +52,7 @@ const OtetudaiModalStanp : NextComponentType = () => {
                         // gap="52px"
                         boxShadow={"2px 6px 0px rgba(234,66,66,1)"}
                         position={"relative"}
+                        zIndex="0"
                         _after={{
                             content:`""`,
                             position:"absolute",
@@ -62,7 +63,7 @@ const OtetudaiModalStanp : NextComponentType = () => {
                             h:"100%",
                             display:"block",
                             boxShadow:"-2px 6px 0px rgba(234,66,66,1)",
-                            zIndex:"1",
+                            zIndex:"-1",
                         }}
                         >
                         <Flex flexFlow={"column"} alignItems={"center"}>

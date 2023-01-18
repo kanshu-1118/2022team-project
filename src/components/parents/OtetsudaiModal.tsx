@@ -1,9 +1,9 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
 import React from 'react'
-import otetudai from '../types/otetudai'
+import otetudai from '../../../pages/api/otetudai'
 
-const OtetudaiModalZumi : NextComponentType = () => {
+const OtetudaiArray : NextComponentType = () => {
 
     const CateArray = otetudai.ArrayList;    
 		const colorTheme = () => {
@@ -49,6 +49,7 @@ const OtetudaiModalZumi : NextComponentType = () => {
                         justifyContent={"center"}
                         boxShadow={"2px 6px 0px rgba(97,72,190,1)"}
                         position={"relative"}
+                        zIndex="0"
                         _after={{
                             content:`""`,
                             position:"absolute",
@@ -59,7 +60,7 @@ const OtetudaiModalZumi : NextComponentType = () => {
                             h:"100%",
                             display:"block",
                             boxShadow:"-2px 6px 0px rgba(97,72,190,1)",
-                            zIndex:"1",
+                            zIndex:"-1",
                         }}
                         >
                         <Text fontSize={"60px"} fontWeight={"100"} color={"#6148BE"}>くつならべ</Text>
@@ -97,7 +98,7 @@ const OtetudaiModalZumi : NextComponentType = () => {
                                         left:"-1",
                                         w:"100%",
                                         h:"100%",
-                                        bgColor:"#e8e8e8",
+                                        bgColor:"#D2CCFF",
                                         display:"block",
                                         opacity:"0.5",
                                         zIndex:"-1",
@@ -110,7 +111,7 @@ const OtetudaiModalZumi : NextComponentType = () => {
                                         left:"1",
                                         w:"100%",
                                         h:"100%",
-                                        bgColor:"blackAlpha.700",
+                                        bgColor:"#6148BE",
                                         display:"block",
                                         opacity:"1",
                                         zIndex:"-1",
@@ -138,4 +139,4 @@ const OtetudaiModalZumi : NextComponentType = () => {
     );
 }
 
-export default OtetudaiModalZumi
+export default OtetudaiArray

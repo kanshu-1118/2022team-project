@@ -4,13 +4,19 @@ import OtetsudaiBtn from '../src/components/OtetsudaiBtn';
 import OtetsudaiAdd from '../src/components/OtetsudaiAdd';
 import otatudaicategory from './OtetudaiArray';
 import OtetudaiArray from './OtetudaiArray';
-import OtetudaiModal from '../src/components/OtetsudaiModal';
+import OtetudaiModal from '../src/components/parents/OtetsudaiModal';
 import OtetudaiCateBtn from '../src/components/OtetudaiCateBtn';
-import OtetudaiModalKanryou from '../src/components/OtetsudaiModalKanryou';
-import Array from "../src/types/otetudai"
-import OtetudaiModalZumi from '../src/components/OtetsudaiModalZumi';
-import OtetudaiModalCheck from '../src/components/OtetsudaiModalCheck';
-import OtetudaiModalStanp from '../src/components/OtetsudaiModalStanp';
+import OtetudaiModalKanryou from '../src/components/parents/OtetsudaiModalKanryou';
+import Array from "./api/otetudai"
+import OtetudaiModalZumi from '../src/components/parents/OtetsudaiModalZumi';
+import OtetudaiModalCheck from '../src/components/parents/OtetsudaiModalCheck';
+import OtetudaiModalStanp from '../src/components/parents/OtetsudaiModalStanp';
+import OtetudaiModalHomeru from '../src/components/parents/OtetsudaiModalHomeru';
+import OtetudaiModalCheckChild from '../src/components/child/OtetsudaiModalCheck';
+import OtetudaiModalStanpChild from '../src/components/child/OtetsudaiModalStanp';
+import OtetudaiModalHomeruChild from '../src/components/child/OtetsudaiModalHomeru';
+import OtetudaiModalStartChild from '../src/components/child/OtetsudaiModalStart';
+import OtetudaiModalPointChild from '../src/components/child/OtetsudaiModalPoint';
 
 
 
@@ -40,11 +46,17 @@ const Home: NextPage = () => {
       </Flex> */}
       {/* <OtetudaiArray /> */}
       {/* <OtetudaiModal /> */}
-      {/* <OtetudaiCateBtn /> */}
-      {/* <OtetudaiModalKanryou /> */}
-      {/* <OtetudaiModalZumi /> */}
-      {/* <OtetudaiModalCheck /> */}
+      {/* <OtetudaiCateBtn />
+      <OtetudaiModalKanryou />
+      <OtetudaiModalZumi />
+      <OtetudaiModalCheck />
       <OtetudaiModalStanp />
+      <OtetudaiModalHomeru />
+      <OtetudaiModalCheckChild />
+      <OtetudaiModalStanpChild />
+      <OtetudaiModalHomeruChild /> */}
+      <OtetudaiModalStartChild />
+      {/* <OtetudaiModalPointChild /> */}
     </Box>
   );
 };

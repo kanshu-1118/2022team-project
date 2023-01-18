@@ -1,27 +1,9 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
 import React from 'react'
-import otetudai from '../../../pages/api/otetudai'
 
 const OtetudaiModalHomeru : NextComponentType = () => {
 
-    const CateArray = otetudai.ArrayList;    
-		const colorTheme = () => {
-			CateArray.map((e) => {
-				if (e.groupName == "キッチン") {
-					console.log("キッチン")
-				}else if (e.groupName == "リビング") {
-					console.log("リビング")
-				}else if (e.groupName == "お風呂・トイレ") {
-					console.log("お風呂・トイレ")
-				}else if (e.groupName == "お洗濯") {
-					console.log("お洗濯")
-				}else if (e.groupName == "その他") {
-					console.log("その他")
-				}
-			})
-		}
-		colorTheme()
     return (
 			<Flex
                 w={"100vw"}
@@ -67,9 +49,9 @@ const OtetudaiModalHomeru : NextComponentType = () => {
                         <Flex flexFlow={"column"} alignItems={"center"} gap="16px">
                             <Text color={"#F25C5C"} fontSize ={"40px"}>ののかちゃんの</Text>
                             <Text fontSize={"81px"} fontWeight={"100"} color={"#F25C5C"} textAlign="center" lineHeight={"100px"}>
-                                くつならべ<Box as='span' fontSize={"56px"} paddingLeft="18px">の</Box><br />お手伝い完了！
+                                くつならべ<Box as='span' fontSize={"56px"} paddingLeft="18px">の</Box><br />おてつだいかんりょう！
                             </Text>
-                            <Text color={"#F25C5C"} fontSize ={"40px"}>たくさん褒めてあげてください！</Text>
+                            <Text color={"#F25C5C"} fontSize ={"40px"}>よくできました！</Text>
                         </Flex>
                         <Flex
                             w={"64px"}
@@ -85,8 +67,8 @@ const OtetudaiModalHomeru : NextComponentType = () => {
                         </Flex>
                         {/* あしらい等 */}
                         <Box as="img" src="./img/curtainImg.svg" w={"186px"} position="absolute" top={"-1px"} left="26px" ></Box>
-                        <Box as="img" src="./img/balloonImg_pink.svg" w={"60px"} position="absolute" top={"200px"} left="32px" ></Box>
-                        <Box as="img" src="./img/balloonImg_yellow.svg" w={"72px"} position="absolute"  top={"266px"} left="90px" ></Box>
+                        <Box as="img" src="./img/balloonImg_pink.svg" w={"60px"} position="absolute" top={"145px"} left="32px" ></Box>
+                        <Box as="img" src="./img/balloonImg_yellow.svg" w={"72px"} position="absolute"  top={"200px"} left="90px" ></Box>
                         <Box as="img" src="./img/balloonImg_yellow.svg" w={"72px"} position="absolute"  top={"126px"} right="90px" ></Box>
                         <Box as="img" src="./img/balloonImg_green.svg" w={"57px"} position="absolute"  top={"196px"} right="42px" ></Box>
                         <Box as="img" src="./img/crackerImg.svg" w={"110px"} position="absolute" right="40px" bottom="32px" transform={"rotateY(180deg)"} ></Box>

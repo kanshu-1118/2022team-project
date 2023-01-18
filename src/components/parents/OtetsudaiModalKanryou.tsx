@@ -49,6 +49,7 @@ const OtetudaiModalKanryou : NextComponentType = () => {
                         justifyContent={"center"}
                         boxShadow={"2px 6px 0px rgba(97,72,190,1)"}
                         position={"relative"}
+                        zIndex="0"
                         _after={{
                             content:`""`,
                             position:"absolute",
@@ -59,7 +60,7 @@ const OtetudaiModalKanryou : NextComponentType = () => {
                             h:"100%",
                             display:"block",
                             boxShadow:"-2px 6px 0px rgba(97,72,190,1)",
-                            zIndex:"1",
+                            zIndex:"-1",
                         }}
                         >
                         <Text fontSize={"60px"} fontWeight={"100"} color={"#6148BE"}>くつならべ</Text>

@@ -1,7 +1,7 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
 import React from 'react'
-import otetudai from '../types/otetudai'
+import otetudai from '../../pages/api/otetudai'
 
 const OtetudaiCateBtn : NextComponentType = (e) => {
 
@@ -20,8 +20,9 @@ const OtetudaiCateBtn : NextComponentType = (e) => {
             gap={"8px"}
             padding={"0 16px"}
             position={"relative"}
+            zIndex="0"
             _after={{
-                content:"",
+                content:`""`,
                 position:"absolute",
                 borderRadius:"20px",
                 top:"0",
@@ -31,7 +32,7 @@ const OtetudaiCateBtn : NextComponentType = (e) => {
                 // bgColor:"#DDDBCD",
                 display:"block",
                 opacity:"0.5",
-                zIndex:"1",
+                zIndex:"-1",
             }}
             >
             <Center w={"50px"} h={"50px"} bgColor={"#F2B950"} borderRadius={"50px"} zIndex={2}>

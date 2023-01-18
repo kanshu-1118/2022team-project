@@ -50,6 +50,7 @@ const OtetudaiModalCheck : NextComponentType = () => {
                         gap="52px"
                         boxShadow={"2px 6px 0px rgba(234,66,66,1)"}
                         position={"relative"}
+                        zIndex="0"
                         _after={{
                             content:`""`,
                             position:"absolute",
@@ -60,7 +61,7 @@ const OtetudaiModalCheck : NextComponentType = () => {
                             h:"100%",
                             display:"block",
                             boxShadow:"-2px 6px 0px rgba(234,66,66,1)",
-                            zIndex:"1",
+                            zIndex:"-1",
                         }}
                         >
                         <Text fontSize={"60px"} fontWeight={"100"} color={"#F25C5C"}>くつならべ</Text>

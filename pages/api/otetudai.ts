@@ -1,4 +1,4 @@
-import { CateFile, StarFile, otetudaiArray } from "./otetudaiType"
+import { CateFile, StarFile, otetudaiArray } from "../../src/types/otetudaiType"
 
 const StarArray : StarFile = {
     1:"./img/1star.svg",

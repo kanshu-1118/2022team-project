@@ -1,7 +1,7 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
 import React from 'react'
-import otetudai from '../src/types/otetudai'
+import otetudai from './api/otetudai'
 
 const OtetudaiArray : NextComponentType = () => {
 

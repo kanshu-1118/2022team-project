@@ -1,9 +1,10 @@
-import { Box, Center, Flex, Text } from '@chakra-ui/react';
+import { Box, Center, Flex, ModalOverlay, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
 import React from 'react'
-import otetudai from '../types/otetudai'
+import otetudai from '../../../pages/api/otetudai'
+import Modalbtn from '../parts/ModalBtn';
 
-const OtetudaiModalKanryou : NextComponentType = () => {
+const OtetudaiModalCheckChild : NextComponentType = () => {
 
     const CateArray = otetudai.ArrayList;    
 		const colorTheme = () => {
@@ -31,24 +32,26 @@ const OtetudaiModalKanryou : NextComponentType = () => {
                 justifyContent={"center"}
                 >
                 <Flex
-                    w={"812px"}
-                    h={"515px"}
+                    w={"1010px"}
+                    h={"656px"}
                     borderRadius={"52px"}
-                    bgColor={"#826AD9"}
-                    border={"2px solid #6148BE"}
+                    bgColor={"#F25C5C"}
+                    border={"2px solid #EA4242"}
                     alignItems={"center"}
                     justifyContent={"center"}
                     >
                     <Flex
-                        w={"774px"}
-                        h={"468px"}
+                        w={"972px"}
+                        h={"609px"}
                         borderRadius={"34px"}
                         bgColor={"#FFFEF8"}
                         flexFlow={'column'}
                         alignItems={"center"}
                         justifyContent={"center"}
-                        boxShadow={"2px 6px 0px rgba(97,72,190,1)"}
+                        gap="52px"
+                        boxShadow={"2px 6px 0px rgba(234,66,66,1)"}
                         position={"relative"}
+                        zIndex="0"
                         _after={{
                             content:`""`,
                             position:"absolute",
@@ -58,25 +61,15 @@ const OtetudaiModalKanryou : NextComponentType = () => {
                             w:"100%",
                             h:"100%",
                             display:"block",
-                            boxShadow:"-2px 6px 0px rgba(97,72,190,1)",
-                            zIndex:"1",
+                            boxShadow:"-2px 6px 0px rgba(234,66,66,1)",
+                            zIndex:"-1",
                         }}
                         >
-                        <Text fontSize={"60px"} fontWeight={"100"} color={"#6148BE"}>くつならべ</Text>
-                        <Flex padding={"8px 0 42px 0"} gap={"5px"} flexFlow={"column"} alignItems={"center"}>
-                            <Box as='img' src='./img/1star.svg' alt="スター1個" w={"143px"} />
-                            <Text fontSize={"18px"} fontWeight={"light"} color={"#826AD9"}>（おすすめ年齢：3歳〜）</Text>
-                        </Flex>
+                        <Text fontSize={"42px"} fontWeight={"100"} color={"#F25C5C"} textAlign="center"><Box as='span' fontSize={"62px"}>くつならべ</Box>の<br />おてつだいがおわりました</Text>
                         {/* ここからボタン */}
-                        <Flex 
-                            // bgColor={"#826AD9"}
-                            w={"495px"}
-                            h={"108px"}
-                            alignItems={"center"}
-                            justifyContent={"center"}
-                            >
-                                
-                                <Text fontSize={"36px"} color={"#826AD9"}>おてつだいに設定しました！</Text>
+                        <Flex flexFlow={"column"} gap={"16px"}>
+                            <Modalbtn borderw={"625px"} w={"615px"} abg={"#27CFBE"} bbg={"#04AFAA"} text={"チェックする"}/>
+                            <Modalbtn borderw={"625px"} w={"615px"} abg={"#27CFBE"} bbg={"#04AFAA"} text={"パパ・ママにつたえにいこう！"}/>
                         </Flex>
                         <Flex
                             w={"64px"}
@@ -96,4 +89,4 @@ const OtetudaiModalKanryou : NextComponentType = () => {
     );
 }
 
-export default OtetudaiModalKanryou
+export default OtetudaiModalCheckChild
