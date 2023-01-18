@@ -15,12 +15,12 @@ export default function otetsudaiApi(
   res.status(200).json([
     {
       kanji: {
-        name: 'お皿を洗う',
+        name: 'お皿洗い',
         desc: '説明が入るよ',
         hint: ['ヒント1が入るよ', 'ヒント2が入るよ'],
       },
       kana: {
-        name: 'おさらをあらう',
+        name: 'おさらあらい',
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
@@ -29,12 +29,12 @@ export default function otetsudaiApi(
     },
     {
       kanji: {
-        name: 'テーブルを拭く',
+        name: 'テーブル拭き',
         desc: '説明が入るよ',
         hint: ['ヒント1が入るよ', 'ヒント2が入るよ'],
       },
       kana: {
-        name: 'テーブルをふく',
+        name: 'テーブルふき',
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },
@@ -43,12 +43,12 @@ export default function otetsudaiApi(
     },
     {
       kanji: {
-        name: 'お皿を片づける',
+        name: 'お皿の片づけ',
         desc: '説明が入るよ',
         hint: ['ヒント1が入るよ', 'ヒント2が入るよ'],
       },
       kana: {
-        name: 'おさらをかたづける',
+        name: 'おさらのかたづけ',
         desc: 'せつめいがはいるよ',
         hint: ['ヒント1がはいるよ', 'ヒント2がはいるよ'],
       },

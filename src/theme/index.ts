@@ -35,12 +35,6 @@ const styles = {
         listStyleType: 'none',
       },
     },
-    '::selection': {
-      background: 'tomato',
-    },
-    '::-moz-selection': {
-      background: 'tomato',
-    },
     pre: {
       fontFamily: 'body',
     },
@@ -87,7 +81,7 @@ const textStyles = {
     textAlign: 'center',
   },
   boxInsideTemplate: {
-    gap: '8px',
+    gap: '20px',
     width: '100%',
     background: 'cream',
     borderRadius: '16px',
@@ -95,13 +89,13 @@ const textStyles = {
     zIndex: '3',
   },
   boxBgTemplate: {
-    width: 'calc(100% + 28px)',
+    width: 'calc(100% + 20px)',
     height: 'calc(100% + 28px + 4px)',
     borderWidth: '4px',
     borderStyle: 'solid',
     borderRadius: '28px',
     position: 'absolute',
-    inset: 'calc(-28px / 2) auto auto calc(-28px / 2)',
+    inset: 'calc(-28px / 2) auto auto calc(-20px / 2)',
   },
   modalTemplate: {
     

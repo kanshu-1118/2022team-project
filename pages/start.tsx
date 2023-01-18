@@ -1,10 +1,7 @@
 import type { NextPage } from 'next';
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { startingQuestionType } from '../src/types/startingQuestion';
-import StartHeading from '../src/components/StartHeading';
-import StartConfirmText from '../src/components/StartConfirmText';
-import Btn from '../src/components/Btn';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { firebaseApp } from '../src/libs/firebase';
 import Logo from '../src/components/Logo';
@@ -27,7 +24,6 @@ const Start: NextPage = () => {
   const [ageIndex, setAgeIndex] = useState<number>(2);
   const [use, setUse] = useState<number>(0);
   const [slide, setSlide] = useState<number>(0);
-  // const [firestoreData, setFirestoreData] = useState<any>();
 
   let ageArrayBox: any = '';
   const nicknameArray = ['ちゃん', 'くん', 'さん'];
@@ -44,6 +40,24 @@ const Start: NextPage = () => {
     ],
   ];
   const useArray = [displayNickname, 'お母さん\nお父さん'];
+
+  const StartHeading = ({ data }: { data: any }) => {
+    return (
+      <Text as="h2" textStyle="start">
+        {data}
+      </Text>
+    );
+  };
+  const StartConfirmText = () => {
+    return (
+      <Flex as="p" alignItems="flex-end" gap="8px" textStyle="start">
+        <Text as="span" display="inline-block" pb="4px" fontSize="2.4rem">
+          で
+        </Text>
+        <Text as="span">あってる？</Text>
+      </Flex>
+    );
+  };
 
   const slideFunc = (i: number, slideIndex: number, pageIndex: number) => {
     if (slideIndex === 0 || (slideIndex === 1 && i === 1)) {
@@ -143,15 +157,6 @@ const Start: NextPage = () => {
             onClick={() => slideFunc(i, data, index)}
             key={item.text + i}
             pos="relative"
-            // sx={{
-            //   ...(name === ''
-            //     ? {
-            //         pointerEvents: 'none',
-            //       }
-            //     : {
-            //         pointerEvents: 'auto',
-            //       }),
-            // }}
           >
             <Center
               as="button"
@@ -165,16 +170,6 @@ const Start: NextPage = () => {
               background={item.bgColor}
               boxShadow={`4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`}
               sx={{
-                // ...(name === ''
-                //   ? {
-                //       background: 'black300',
-                //       boxShadow:
-                //         '4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 #9c9c9c inset',
-                //     }
-                //   : {
-                //       background: item.bgColor,
-                //       boxShadow: `4px 4px 0 rgba(255, 255, 255, 0.5) inset, -4px -4px 0 ${item.shadowColor} inset`,
-                //     }),
                 '&::before': {
                   content: "''",
                   display: 'block',
