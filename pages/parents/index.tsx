@@ -75,7 +75,7 @@ const ParentsStart: NextPage = () => {
     });
     setFirebaseCheckData(retCheck[0]);
   };
-  const firebaseUser = async (api) => {
+  const firebaseUser = async (api: any) => {
     const colUser = collection(db, 'user');
     const querySnapshotUser = await getDocs(colUser);
     const retUser: any = [];
@@ -196,129 +196,147 @@ const ParentsStart: NextPage = () => {
   };
   const OtetsudaiList = () => {
     return (
-      <Box w="62vw" maxW="664px" h="90vh" maxH="720px" pos="relative">
-        <Flex
-          justifyContent="center"
-          gap="28px"
-          h="100%"
-          p="104px 14px 0 0"
-          boxShadow="0 4px #04AFAA"
-          textStyle="boxInsideTemplate"
-        >
-          {/* へっだー */}
-          <Center w="110%" h="110px" pos="absolute" inset="-24px auto auto -5%">
-            <Center
-              gap="8px"
-              w="100%"
-              color="white"
-              pr="16px"
-              fontSize="2.7rem"
-              pos="absolute"
-              zIndex="3"
-            >
-              <Text>{fireBaseUserData.nickname}のおてつだいリスト</Text>
-              <OtetsudaiAdd />
-            </Center>
-            <Box
-              w="100%"
-              borderBottomStyle="solid"
-              borderBottomWidth="100px"
-              borderBottomColor="orange300"
-              borderLeft="28px solid transparent"
-              borderRight="28px solid transparent"
-              pos="absolute"
-              zIndex="2"
-            />
-            <Box
-              w="calc(100% + 10px)"
-              borderBottomStyle="solid"
-              borderBottomWidth="110px"
-              borderBottomColor="orange500"
-              borderLeft="28px solid transparent"
-              borderRight="28px solid transparent"
-              pos="absolute"
-              zIndex="1"
-            />
-          </Center>
-          {/* りすと */}
-          <Flex flexDirection="column" gap="16px 0" w="fit-content">
-            <OtetsudaiBtn
-              index={firebaseCheckData.start}
-              data={api}
-              state={STATE_START}
-            />
-            <OtetsudaiBtn
-              index={firebaseCheckData.end}
-              data={api}
-              state={STATE_END}
-            />
-          </Flex>
-          {/* おわったよ */}
-          <Box
-            w="29vw"
-            maxWidth="304px"
-            h="92%"
-            pos="relative"
-            transform="translateY(14px)"
-          >
+      <>
+        {api && (
+          <Box w="62vw" maxW="664px" h="90vh" maxH="720px" pos="relative">
             <Flex
-              alignItems="center"
-              flexDirection="column"
-              gap="15px"
+              justifyContent="center"
+              gap="28px"
               h="100%"
-              boxShadow="0 4px #049DD9"
+              p="104px 14px 0 0"
+              boxShadow="0 4px #04AFAA"
               textStyle="boxInsideTemplate"
             >
-              <Owattayo />
-              <Flex flexDirection="column" gap="16px 0">
+              {/* へっだー */}
+              <Center
+                w="110%"
+                h="110px"
+                pos="absolute"
+                inset="-24px auto auto -5%"
+              >
+                <Center
+                  gap="8px"
+                  w="100%"
+                  color="white"
+                  pr="16px"
+                  fontSize="2.7rem"
+                  pos="absolute"
+                  zIndex="3"
+                >
+                  <Text>{fireBaseUserData.nickname}のおてつだいリスト</Text>
+                  <OtetsudaiAdd />
+                </Center>
+                <Box
+                  w="100%"
+                  borderBottomStyle="solid"
+                  borderBottomWidth="100px"
+                  borderBottomColor="orange300"
+                  borderLeft="28px solid transparent"
+                  borderRight="28px solid transparent"
+                  pos="absolute"
+                  zIndex="2"
+                />
+                <Box
+                  w="calc(100% + 10px)"
+                  borderBottomStyle="solid"
+                  borderBottomWidth="110px"
+                  borderBottomColor="orange500"
+                  borderLeft="28px solid transparent"
+                  borderRight="28px solid transparent"
+                  pos="absolute"
+                  zIndex="1"
+                />
+              </Center>
+              {/* りすと */}
+              <Flex flexDirection="column" gap="16px 0" w="fit-content">
                 <OtetsudaiBtn
-                  index={firebaseCheckData.confirm}
+                  index={firebaseCheckData.start}
                   data={api}
-                  state={STATE_CONFIRM}
+                  state={STATE_START}
                 />
                 <OtetsudaiBtn
-                  index={firebaseCheckData.complete}
+                  index={firebaseCheckData.end}
                   data={api}
-                  state={STATE_COMPLETE}
+                  state={STATE_END}
                 />
               </Flex>
+              {/* おわったよ */}
+              <Box
+                w="29vw"
+                maxWidth="304px"
+                h="92%"
+                pos="relative"
+                transform="translateY(14px)"
+              >
+                <Flex
+                  alignItems="center"
+                  flexDirection="column"
+                  gap="15px"
+                  h="100%"
+                  boxShadow="0 4px #049DD9"
+                  textStyle="boxInsideTemplate"
+                >
+                  <Owattayo />
+                  <Flex flexDirection="column" gap="16px 0">
+                    <OtetsudaiBtn
+                      index={firebaseCheckData.confirm}
+                      data={api}
+                      state={STATE_CONFIRM}
+                    />
+                    <OtetsudaiBtn
+                      index={firebaseCheckData.complete}
+                      data={api}
+                      state={STATE_COMPLETE}
+                    />
+                  </Flex>
+                </Flex>
+                <Box
+                  bg="skyblue300"
+                  borderColor="skyblue500"
+                  textStyle="boxBgTemplate"
+                />
+              </Box>
             </Flex>
             <Box
-              bg="skyblue300"
-              borderColor="skyblue500"
+              bg="green300"
+              borderColor="green500"
               textStyle="boxBgTemplate"
             />
           </Box>
-        </Flex>
-        <Box bg="green300" borderColor="green500" textStyle="boxBgTemplate" />
-      </Box>
+        )}
+      </>
     );
   };
   const OtetsudaiRecommend = () => {
     return (
-      <Box w="100%" h="100%" pos="relative">
-        <LevelBtn />
-        <Center
-          flexDirection="column"
-          w="100%"
-          h="100%"
-          p="20px 0"
-          boxShadow="0 4px #ED4076"
-          textStyle="boxInsideTemplate"
-        >
-          <Text color="pink500" textStyle="boxHeadingTemplate">
-            {fireBaseUserData.nickname}に
-            <br />
-            おすすめのお手伝い
-          </Text>
-          <OtetsudaiBtn
-            index={recommendData}
-            data={api}
-            state={STATE_RECOMMEND}
-          />
-        </Center>
-        <Box bg="pink300" borderColor="pink500" textStyle="boxBgTemplate" />
-      </Box>
+      <>
+        {api && (
+          <Box w="100%" h="100%" pos="relative">
+            <LevelBtn />
+            <Center
+              flexDirection="column"
+              w="100%"
+              h="100%"
+              p="20px 0"
+              boxShadow="0 4px #ED4076"
+              textStyle="boxInsideTemplate"
+            >
+              <Text color="pink500" textStyle="boxHeadingTemplate">
+                {fireBaseUserData.nickname}に
+                <br />
+                おすすめのお手伝い
+              </Text>
+              <OtetsudaiBtn
+                index={recommendData}
+                data={api}
+                state={STATE_RECOMMEND}
+              />
+            </Center>
+            <Box bg="pink300" borderColor="pink500" textStyle="boxBgTemplate" />
+          </Box>
+        )}
+        ;
+      </>
     );
   };
   const OtetsudaiSetting = () => {
@@ -377,56 +395,66 @@ const ParentsStart: NextPage = () => {
   };
   const OtetsudaiFirstModal = () => {
     return (
-      <Center w="100vw" h="100vh" pos="fixed" inset="0 0 auto auto" zIndex="20">
-        <Box
-          w="85vw"
-          maxW="880px"
-          h="85vh"
-          maxH="614px"
-          color="red500"
-          pos="relative"
-          zIndex="30"
-        >
+      <>
+        {api && (
           <Center
-            flexDirection="column"
-            gap="32px"
-            h="100%"
-            boxShadow="0 4px #EA4242"
-            textStyle="boxInsideTemplate"
+            w="100vw"
+            h="100vh"
+            pos="fixed"
+            inset="0 0 auto auto"
+            zIndex="20"
           >
-            <Center flexDirection="column" gap="8px">
-              <Text fontSize="2rem">こんにちは！</Text>
-              <Text fontSize="4.2rem" textAlign="center">
-                今日も{fireBaseUserData.nickname}に<br />
-                お手伝いをしてもらいましょう！
-              </Text>
-            </Center>
-            <Center flexDirection="column" gap="24px">
-              <Text fontSize="2rem" textAlign="center">
-                {fireBaseUserData.nickname}におすすめのお手伝い
-              </Text>
-              <Flex>
-                <OtetsudaiBtn
-                  index={recommendModalData}
-                  data={api}
-                  state={STATE_RECOMMEND}
-                  modal
-                />
-              </Flex>
-              <EnterBtn data={2} setModalFlag={setModalFlag} />
-            </Center>
+            <Box
+              w="85vw"
+              maxW="880px"
+              h="85vh"
+              maxH="614px"
+              color="red500"
+              pos="relative"
+              zIndex="30"
+            >
+              <Center
+                flexDirection="column"
+                gap="32px"
+                h="100%"
+                boxShadow="0 4px #EA4242"
+                textStyle="boxInsideTemplate"
+              >
+                <Center flexDirection="column" gap="8px">
+                  <Text fontSize="2rem">こんにちは！</Text>
+                  <Text fontSize="4.2rem" textAlign="center">
+                    今日も{fireBaseUserData.nickname}に<br />
+                    お手伝いをしてもらいましょう！
+                  </Text>
+                </Center>
+                <Center flexDirection="column" gap="24px">
+                  <Text fontSize="2rem" textAlign="center">
+                    {fireBaseUserData.nickname}におすすめのお手伝い
+                  </Text>
+                  <Flex>
+                    <OtetsudaiBtn
+                      index={recommendModalData}
+                      data={api}
+                      state={STATE_RECOMMEND}
+                      modal
+                    />
+                  </Flex>
+                  <EnterBtn data={2} setModalFlag={setModalFlag} />
+                </Center>
+              </Center>
+              <Box bg="red300" borderColor="red500" textStyle="boxBgTemplate" />
+              <ModalRemoveBtn setModalFlag={setModalFlag} />
+            </Box>
+            <Flex
+              w="100%"
+              h="100%"
+              bg="rgba(0, 0, 0, 0.6)"
+              pos="absolute"
+              inset="0 0 auto auto"
+            />
           </Center>
-          <Box bg="red300" borderColor="red500" textStyle="boxBgTemplate" />
-          <ModalRemoveBtn setModalFlag={setModalFlag} />
-        </Box>
-        <Flex
-          w="100%"
-          h="100%"
-          bg="rgba(0, 0, 0, 0.6)"
-          pos="absolute"
-          inset="0 0 auto auto"
-        />
-      </Center>
+        )}
+      </>
     );
   };
 
