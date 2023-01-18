@@ -75,7 +75,7 @@ const ParentsStart: NextPage = () => {
     });
     setFirebaseCheckData(retCheck[0]);
   };
-  const firebaseUser = async () => {
+  const firebaseUser = async (api) => {
     const colUser = collection(db, 'user');
     const querySnapshotUser = await getDocs(colUser);
     const retUser: any = [];
@@ -120,7 +120,7 @@ const ParentsStart: NextPage = () => {
     };
     getApi();
     firebaseCheck();
-    firebaseUser();
+    firebaseUser(api);
   }, []);
 
   useEffect(() => {
