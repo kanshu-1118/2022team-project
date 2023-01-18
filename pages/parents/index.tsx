@@ -18,11 +18,23 @@ import { otetsudaiType } from '../../src/types/otetsudai';
 import ModalRemoveBtn from '../../src/components/ModalRemoveBtn';
 import EnterBtn from '../../src/components/EnterBtn';
 
-type Props = {
-  api: otetsudaiType[];
-};
+// type Props = {
+//   api: otetsudaiType[];
+// };
 
-const ParentsStart: NextPage<Props> = ({ api }) => {
+// const ParentsStart: NextPage<Props> = ({ api }) => {
+const ParentsStart: NextPage = () => {
+  //   export const getStaticProps: any = async () => {
+  //   const response = await fetch(`${otetsudaiApi}`);
+  //   const otetsudaiApiData = await response.json();
+
+  //   return {
+  //     props: {
+  //       api: otetsudaiApiData,
+  //     },
+  //   };
+  // };
+
   const [fireBaseUserData, setFireBaseUserData] = useState<any>('');
   const [firebaseCheckData, setFirebaseCheckData] =
     useState<otetsudaiCheckType>({
@@ -34,6 +46,7 @@ const ParentsStart: NextPage<Props> = ({ api }) => {
   const [recommendData, setRecommendData] = useState<number[]>([]);
   const [recommendModalData, setRecommendModalData] = useState<number[]>([]);
   const [modalFlag, setModalFlag] = useState<boolean>(false);
+  const [api, setApi] = useState();
   const db = getFirestore(firebaseApp);
 
   const hoge: {
@@ -100,6 +113,12 @@ const ParentsStart: NextPage<Props> = ({ api }) => {
   };
 
   useEffect(() => {
+    const getApi = async () => {
+      const response = await fetch(`${otetsudaiApi}`);
+      const otetsudaiApiData = await response.json();
+      setApi(otetsudaiApiData);
+    };
+    getApi();
     firebaseCheck();
     firebaseUser();
   }, []);
@@ -446,13 +465,13 @@ const ParentsStart: NextPage<Props> = ({ api }) => {
 
 export default ParentsStart;
 
-export const getStaticProps: any = async () => {
-  const response = await fetch(`${otetsudaiApi}`);
-  const otetsudaiApiData = await response.json();
+// export const getStaticProps: any = async () => {
+//   const response = await fetch(`${otetsudaiApi}`);
+//   const otetsudaiApiData = await response.json();
 
-  return {
-    props: {
-      api: otetsudaiApiData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       api: otetsudaiApiData,
+//     },
+//   };
+// };
