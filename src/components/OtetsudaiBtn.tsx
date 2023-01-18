@@ -35,6 +35,11 @@ const OtetsudaiBtn: FC<Props> = ({ index, data, state, modal }) => {
   ]);
   const [modalNumberArray, setModalNumberArray] = useState<any>([]);
 
+  // start -> （親）おてつだい頼み中
+  // end -> （子）おてつだい終わった
+  // confirm -> （親）おてつだい確認した
+  // confirm -> （子）子供も確認して、報酬をもらった
+
   const sendFirebaseModal = async (data: number[]) => {
     const db = getFirestore(firebaseApp);
     const colCheck = collection(db, 'check');

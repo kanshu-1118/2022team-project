@@ -33,7 +33,7 @@ const ParentsStart: NextPage<Props> = ({ api }) => {
     });
   const [recommendData, setRecommendData] = useState<number[]>([]);
   const [recommendModalData, setRecommendModalData] = useState<number[]>([]);
-  const [modalFlag, setModalFlag] = useState<boolean>(true);
+  const [modalFlag, setModalFlag] = useState<boolean>(false);
   const db = getFirestore(firebaseApp);
 
   const hoge: {
@@ -413,29 +413,33 @@ const ParentsStart: NextPage<Props> = ({ api }) => {
 
   return (
     <>
-      <Center
-        gap="3vw"
-        minWidth="100vw"
-        minHeight="100vh"
-        bg="url('../img/bg.png')"
-        bgSize="cover"
-        bgPosition="center bottom"
-        p="2vw"
-      >
-        <OtetsudaiList />
-        <Flex
-          flexDirection="column"
-          gap="5.5vh"
-          w="29vw"
-          maxWidth="304px"
-          h="90vh"
-          maxH="720px"
-        >
-          <OtetsudaiRecommend />
-          <OtetsudaiSetting />
-        </Flex>
-      </Center>
-      {modalFlag && <OtetsudaiFirstModal />}
+      {api && (
+        <>
+          <Center
+            gap="3vw"
+            minWidth="100vw"
+            minHeight="100vh"
+            bg="url('../img/bg.png')"
+            bgSize="cover"
+            bgPosition="center bottom"
+            p="2vw"
+          >
+            <OtetsudaiList />
+            <Flex
+              flexDirection="column"
+              gap="5.5vh"
+              w="29vw"
+              maxWidth="304px"
+              h="90vh"
+              maxH="720px"
+            >
+              <OtetsudaiRecommend />
+              <OtetsudaiSetting />
+            </Flex>
+          </Center>
+          {modalFlag && <OtetsudaiFirstModal />}
+        </>
+      )}
     </>
   );
 };
