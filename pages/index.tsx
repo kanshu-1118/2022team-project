@@ -1,64 +1,29 @@
 import type { NextPage } from 'next';
-import { Box, Flex } from '@chakra-ui/react';
-import OtetsudaiBtn from '../src/components/OtetsudaiBtn';
-import OtetsudaiAdd from '../src/components/OtetsudaiAdd';
-import otatudaicategory from './OtetudaiArray';
-import OtetudaiArray from './OtetudaiArray';
-import OtetudaiModal from '../src/components/parents/OtetsudaiModal';
-import OtetudaiCateBtn from '../src/components/OtetudaiCateBtn';
-import OtetudaiModalKanryou from '../src/components/parents/OtetsudaiModalKanryou';
-import Array from "./api/otetudai"
-import OtetudaiModalZumi from '../src/components/parents/OtetsudaiModalZumi';
-import OtetudaiModalCheck from '../src/components/parents/OtetsudaiModalCheck';
-import OtetudaiModalStanp from '../src/components/parents/OtetsudaiModalStanp';
-import OtetudaiModalHomeru from '../src/components/parents/OtetsudaiModalHomeru';
-import OtetudaiModalCheckChild from '../src/components/child/OtetsudaiModalCheck';
-import OtetudaiModalStanpChild from '../src/components/child/OtetsudaiModalStanp';
-import OtetudaiModalHomeruChild from '../src/components/child/OtetsudaiModalHomeru';
-import OtetudaiModalStartChild from '../src/components/child/OtetsudaiModalStart';
-import OtetudaiModalPointChild from '../src/components/child/OtetsudaiModalPoint';
-
-
+import { Box, Center, Flex } from '@chakra-ui/react';
+// import otatudaicategory from './OtetudaiArray';
+// import OtetudaiArray from './OtetudaiArray';
+import Logo from '../src/components/Logo';
+import StartBtn from '../src/components/Btn';
 
 const Home: NextPage = () => {
 
-  const Arrays = Array.ArrayList
   return (
-    <Box
-      minWidth="100vw"
-      minHeight="100vh"
-      bg="url('img/bg.png')"
-      bgSize="cover"
-      bgPosition="center bottom"
+    <Center
+      flexDirection="column"
+      gap="24px"
+      w="100vw"
+      h="100vh"
+      bg="url('./img/index_animal_left.png'), url('./img/index_animal_right.png'), url('./img/index_whether_left.png'), url('./img/index_whether_right.png'), url('./img/index_whether_bottom.png'), url('./img/index_bg.png')"
+      bgSize="40vw auto, 40vw auto, 35vw auto, 30vw auto, auto 45vh, cover"
+      bgPosition="left -16px bottom 24px, right -16px bottom 24px, left -80px top 32px, right -80px top 56px, center bottom -160px, center center"
+      bgRepeat="no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat"
+      pb="24px"
     >
-      {/* <Box>おてつだいず！！！</Box> */}
-      {/* <OtetsudaiBtn />
-      <OtetsudaiAdd />
-      <Flex w="240px" h="56px">
-        <Box
-          as="img"
-          src="img/text_owattayo.png"
-          alt="終わったよ！"
-          w="100%"
-          h="100%"
-          objectFit="contain"
-        />
-      </Flex> */}
-      {/* <OtetudaiArray /> */}
-      {/* <OtetudaiModal /> */}
-      {/* <OtetudaiCateBtn />
-      <OtetudaiModalKanryou />
-      <OtetudaiModalZumi />
-      <OtetudaiModalCheck />
-      <OtetudaiModalStanp />
-      <OtetudaiModalHomeru />
-      <OtetudaiModalCheckChild />
-      <OtetudaiModalStanpChild />
-      <OtetudaiModalHomeruChild /> */}
-      <OtetudaiModalStartChild />
-      {/* <OtetudaiModalPointChild /> */}
-    </Box>
+      <Logo size="90vw" />
+      <StartBtn dataIndex={0} path="start" />
+    </Center>
   );
+  
 };
 
 export default Home;
