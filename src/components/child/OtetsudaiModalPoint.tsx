@@ -1,8 +1,23 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
 import { NextComponentType } from 'next';
-import React from 'react'
+import {useState} from 'react'
 
-const OtetudaiModalPoint : NextComponentType = () => {
+
+
+interface ModalProps {
+    display:string;
+    zindex:string;
+    opacity:string;
+};
+
+const OtetudaiModalPoint = ( props : ModalProps) => {
+
+    const [close,setClose] = useState("Flex")
+
+    const close1 = () => {
+        console.log("wowo");
+        setClose("none")
+    }
 
     return (
 			<Flex
@@ -11,6 +26,13 @@ const OtetudaiModalPoint : NextComponentType = () => {
                 bgColor={"blackAlpha.700"}
                 alignItems={"center"}
                 justifyContent={"center"}
+                opacity={props.opacity}
+                zIndex={props.zindex}
+                display={close}
+                position={"absolute"}
+                top="0"
+                // transform={"translate(-25%,25%)"}
+                // transformOrigin="center"
                 >
                 <Flex
                     w={"1010px"}
@@ -71,6 +93,7 @@ const OtetudaiModalPoint : NextComponentType = () => {
                             right={"24px"}
                             alignItems="center"
                             justifyContent="center"
+                            onClick={close1}
                             >
                             <Box as='img' src='./img/backBtn_batu.svg' w={"28px"}></Box>
                         </Flex>
@@ -86,6 +109,12 @@ const OtetudaiModalPoint : NextComponentType = () => {
                 </Flex>
             </Flex>
     );
+}
+
+OtetudaiModalPoint.defaultProps ={
+    display:"none",
+    zindex:"-100",
+    opacity:"0"
 }
 
 export default OtetudaiModalPoint
