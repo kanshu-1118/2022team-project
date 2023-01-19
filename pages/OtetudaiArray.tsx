@@ -30,11 +30,11 @@ const OtetudaiArray : NextPage = () => {
 		const [opa,setOpa] = useState("0")
 		const [bordercolor,setBorderColor] = useState()
 
-		const btnClick = (ev : any) => {
+		const btnClick = (ev : any,categoryIndex:number,otetsudaiIndex:number) => {
 			setZin("10")
 			setOpa("1")
-			console.log(ev.target.style.border);
-			
+			console.log(categoryIndex);
+			console.log(otetsudaiIndex);
 			// setTimeout(() =>{
 			// 	setZin("-10")
 			// 	setOpa("0")
@@ -69,10 +69,10 @@ const OtetudaiArray : NextPage = () => {
 				>
 				<Box w={(343+60)*CateArray.length} >
 					<Flex as="ul" gap={"48px"} justifyContent={"center"}>
-						{CateArray.map((e,i) => 
+						{CateArray.map((e,index) => 
 							<Flex
 								as='li'
-								key={i}
+								key={index}
 								flexFlow={"column"}
 								gap={"26px"}
 								// padding="0 32px"
@@ -97,12 +97,12 @@ const OtetudaiArray : NextPage = () => {
 										display:"none",
 									},
 									}}>
-									{e.categoryAbout.map((ex,i) =>									
+									{e.categoryAbout.map((ex,childindex) =>									
 										<Flex
 											as="li"
 											w={"320px"}
 											minH={"80px"}
-											key={i}
+											key={childindex}
 											bgColor={"#FCFBF7"}
 											border={`4px solid ${e.color.map((en) => en.main)}`}
 											borderRadius={"20px"}
@@ -110,7 +110,7 @@ const OtetudaiArray : NextPage = () => {
 											gap={"8px"}
 											padding={"0 16px"}
 											position={"relative"}
-											onClick={btnClick}
+											onClick={(ev)=>btnClick(ev,index,childindex)}
 											_after={{
 												content:`""`,
 												position:"absolute",
