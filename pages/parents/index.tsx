@@ -10,7 +10,7 @@ import {
 } from '../../src/libs/name';
 import OtetsudaiBtn from '../../src/components/OtetsudaiBtn';
 import { firebaseApp } from '../../src/libs/firebase';
-import { addDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { otetsudaiCheckType } from '../../src/types/otetsudaiCheck';
 import { otetsudaiApi } from '../../src/libs/otetsudaiApi';
@@ -33,7 +33,7 @@ const ParentsStart: NextPage = () => {
   const [api, setApi] = useState<otetsudaiType[]>();
   const db = getFirestore(firebaseApp);
 
-  const hoge: {
+  const settingArray: {
     title: string;
     svg: string;
   }[] = [
@@ -74,7 +74,6 @@ const ParentsStart: NextPage = () => {
         retUser.push(doc.data());
       });
       setFireBaseUserData(retUser[0]);
-
       let rcmDataArray = [];
       let newRcmDataArray = [];
       let newRcmDataModalArray = [];
@@ -341,7 +340,7 @@ const ParentsStart: NextPage = () => {
             設定
           </Text>
           <Flex alignItems="center" gap="12px" w="fit-content">
-            {hoge.map((item, i) => (
+            {settingArray.map((item, i) => (
               <Flex gap="4px" flexDirection="column" key={i + 'setting'}>
                 <Flex
                   justifyContent="center"
