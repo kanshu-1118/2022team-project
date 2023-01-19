@@ -18,23 +18,7 @@ import { otetsudaiType } from '../../src/types/otetsudai';
 import ModalRemoveBtn from '../../src/components/ModalRemoveBtn';
 import EnterBtn from '../../src/components/EnterBtn';
 
-// type Props = {
-//   api: otetsudaiType[];
-// };
-
-// const ParentsStart: NextPage<Props> = ({ api }) => {
 const ParentsStart: NextPage = () => {
-  //   export const getStaticProps: any = async () => {
-  //   const response = await fetch(`${otetsudaiApi}`);
-  //   const otetsudaiApiData = await response.json();
-
-  //   return {
-  //     props: {
-  //       api: otetsudaiApiData,
-  //     },
-  //   };
-  // };
-
   const [fireBaseUserData, setFireBaseUserData] = useState<any>('');
   const [firebaseCheckData, setFirebaseCheckData] =
     useState<otetsudaiCheckType>({
@@ -46,7 +30,7 @@ const ParentsStart: NextPage = () => {
   const [recommendData, setRecommendData] = useState<number[]>([]);
   const [recommendModalData, setRecommendModalData] = useState<number[]>([]);
   const [modalFlag, setModalFlag] = useState<boolean>(false);
-  const [api, setApi] = useState();
+  const [api, setApi] = useState<otetsudaiType[]>();
   const db = getFirestore(firebaseApp);
 
   const hoge: {
@@ -66,6 +50,12 @@ const ParentsStart: NextPage = () => {
       svg: 'kana',
     },
   ];
+
+  const getApi = async () => {
+    const response = await fetch(`${otetsudaiApi}`);
+    const otetsudaiApiData = await response.json();
+    setApi(otetsudaiApiData);
+  };
   const firebaseCheck = async () => {
     const colCheck = collection(db, 'check');
     const querySnapshotCheck = await getDocs(colCheck);
@@ -75,7 +65,7 @@ const ParentsStart: NextPage = () => {
     });
     setFirebaseCheckData(retCheck[0]);
   };
-  const firebaseUser = async (api: any) => {
+  const firebaseUser = async () => {
     if (api) {
       const colUser = collection(db, 'user');
       const querySnapshotUser = await getDocs(colUser);
@@ -115,15 +105,13 @@ const ParentsStart: NextPage = () => {
   };
 
   useEffect(() => {
-    const getApi = async () => {
-      const response = await fetch(`${otetsudaiApi}`);
-      const otetsudaiApiData = await response.json();
-      setApi(otetsudaiApiData);
-    };
     getApi();
     firebaseCheck();
-    firebaseUser(api);
   }, []);
+
+  useEffect(() => {
+    firebaseUser();
+  }, [api]);
 
   useEffect(() => {
     firebaseCheck();
@@ -337,7 +325,6 @@ const ParentsStart: NextPage = () => {
             <Box bg="pink300" borderColor="pink500" textStyle="boxBgTemplate" />
           </Box>
         )}
-        ;
       </>
     );
   };
@@ -494,14 +481,3 @@ const ParentsStart: NextPage = () => {
 };
 
 export default ParentsStart;
-
-// export const getStaticProps: any = async () => {
-//   const response = await fetch(`${otetsudaiApi}`);
-//   const otetsudaiApiData = await response.json();
-
-//   return {
-//     props: {
-//       api: otetsudaiApiData,
-//     },
-//   };
-// };
