@@ -6,24 +6,10 @@ import Stanparray from '../../../pages/api/otetudaiStanp';
 
 const OtetudaiModalStanp : NextComponentType = () => {
 
-    const CateArray = otetudai.ArrayList;
-    
-		const colorTheme = () => {
-			CateArray.map((e) => {
-				if (e.groupName == "キッチン") {
-					console.log("キッチン")
-				}else if (e.groupName == "リビング") {
-					console.log("リビング")
-				}else if (e.groupName == "お風呂・トイレ") {
-					console.log("お風呂・トイレ")
-				}else if (e.groupName == "お洗濯") {
-					console.log("お洗濯")
-				}else if (e.groupName == "その他") {
-					console.log("その他")
-				}
-			})
-		}
-		colorTheme()
+    const click = () => {
+        console.log(11);
+    }
+		
     return (
 			<Flex
                 w={"100vw"}
@@ -75,7 +61,7 @@ const OtetudaiModalStanp : NextComponentType = () => {
                             <Text fontSize={"22px"} fontWeight={"light"} color={"#F25C5C"}>確認スタンプを押してください</Text>
                             <Flex gap={"24px"}>
                                 {Stanparray.map((e,i) => 
-                                    <Flex w={"162px"} h={"162px"} bgColor={"#FFF5DB"}  alignItems={"center"} justifyContent={"center"}>
+                                    <Flex w={"162px"} h={"162px"} bgColor={"#FFF5DB"}  alignItems={"center"} justifyContent={"center"} onClick={click}>
                                         <Box w={"130px"} as='img' src={`./img/stanp${i+1}.svg`}></Box>
                                     </Flex>
                                 )}

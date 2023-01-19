@@ -1,9 +1,9 @@
 import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import { NextComponentType } from 'next';
+import { NextComponentType, NextPage } from 'next';
 import React from 'react'
 import otetudai from './api/otetudai'
 
-const OtetudaiArray : NextComponentType = () => {
+const OtetudaiArray : NextPage = () => {
 
     const CateArray = otetudai.ArrayList;
     console.log(CateArray.length);

@@ -36,7 +36,7 @@ const OtetudaiModalPoint = ( props : ModalProps) => {
                 >
                 <Flex
                     w={"1010px"}
-                    h={"656px"}
+                    h={"671px"}
                     borderRadius={"52px"}
                     bgColor={"#27CFBE"}
                     border={"2px solid #04AFAA"}
@@ -45,7 +45,7 @@ const OtetudaiModalPoint = ( props : ModalProps) => {
                     >
                     <Flex
                         w={"972px"}
-                        h={"609px"}
+                        h={"624px"}
                         borderRadius={"34px"}
                         bgColor={"#FFFEF8"}
                         flexFlow={'column'}
