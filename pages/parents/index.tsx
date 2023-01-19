@@ -238,6 +238,11 @@ const ParentsStart: NextPage<Props> = ({ api }) => {
               data={api}
               state={STATE_END}
             />
+            <OtetsudaiBtn
+              index={firebaseCheckData.end}
+              data={api}
+              state={STATE_END}
+            />
           </Flex>
           {/* おわったよ */}
           <Box

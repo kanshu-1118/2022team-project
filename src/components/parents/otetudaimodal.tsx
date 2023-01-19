@@ -1,18 +1,29 @@
-import { Box, Center, Flex, position, Text } from '@chakra-ui/react';
+import { Box, Center, color, Flex, position, Text } from '@chakra-ui/react';
 import { NextComponentType, NextPage } from 'next';
 import React, { useState } from 'react'
 import otetudai from '../../../pages/api/otetudai'
+import Modalbtn from '../parts/ModalBtn2';
 
 interface propsType {
     zindex:string
     opacity:string
     setZin:any
     setOpa:any
+    setCategoryIndex:any
+    setOtetsudaiIndex:any
 }
 
 const Otetudaimodal  = (props : propsType ) => {
 
+    const colorarray = otetudai.ArrayList
+
     const [dis,setDis] = useState("Flex")
+    const [after,setAfter] = useState("Flex")
+    const [textdis,setTextdis] = useState("none")
+    
+    if(after == textdis){
+        setTextdis("flex")
+    }
 
     const backClick = () => {
         props.setZin("-10")
@@ -47,15 +58,15 @@ const Otetudaimodal  = (props : propsType ) => {
                 top={"0"}
                 zIndex={props.zindex}
                 opacity={props.opacity}
-                transition=" 0.5s ease "
+                transition=" 0.2s ease"
                 display={dis}
                 >
                 <Flex
                     w={"812px"}
                     h={"515px"}
                     borderRadius={"52px"}
-                    bgColor={"#826AD9"}
-                    border={"2px solid #6148BE"}
+                    bgColor={`${colorarray[props.setCategoryIndex].color.map((en) => en.main)}`}
+                    border={`2px solid ${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}`}
                     alignItems={"center"}
                     justifyContent={"center"}
                     >
@@ -67,7 +78,7 @@ const Otetudaimodal  = (props : propsType ) => {
                         flexFlow={'column'}
                         alignItems={"center"}
                         justifyContent={"center"}
-                        boxShadow={"2px 6px 0px rgba(97,72,190,1)"}
+                        boxShadow={`2px 6px 0px ${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}`}
                         position={"relative"}
                         zIndex="0"
                         _after={{
@@ -79,14 +90,14 @@ const Otetudaimodal  = (props : propsType ) => {
                             w:"100%",
                             h:"100%",
                             display:"block",
-                            boxShadow:"-2px 6px 0px rgba(97,72,190,1)",
+                            boxShadow:"-2px 6px 0px ${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}",
                             zIndex:"-1",
                         }}
                         >
-                        <Text fontSize={"60px"} fontWeight={"100"} color={"#6148BE"}>くつならべ</Text>
+                        <Text fontSize={"60px"} fontWeight={"100"} color={`${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}`}>{colorarray[props.setCategoryIndex].categoryAbout[props.setOtetsudaiIndex].categoryName}</Text>
                         <Flex padding={"8px 0 42px 0"} gap={"5px"} flexFlow={"column"} alignItems={"center"}>
-                            <Box as='img' src='./img/1star.svg' alt="スター1個" w={"143px"} />
-                            <Text fontSize={"18px"} fontWeight={"light"} color={"#826AD9"}>（おすすめ年齢：3歳〜）</Text>
+                            <Box as='img' src={colorarray[props.setCategoryIndex].categoryAbout[props.setOtetsudaiIndex].categoryStar} alt="スター1個" w={"143px"} />
+                            <Text fontSize={"18px"} fontWeight={"light"} color={`${colorarray[props.setCategoryIndex].color.map((en) => en.main)}`}>（おすすめ年齢：3歳〜）</Text>
                         </Flex>
                         {/* ここからボタン */}
                         <Flex 
@@ -95,11 +106,11 @@ const Otetudaimodal  = (props : propsType ) => {
                             h={"108px"}
                             border={"4px solid #fff"}
                             borderRadius={"100px"}
-                            boxShadow={"0px 6px 0px rgba(211,211,211,1)"}
+                            // boxShadow={"0px 6px 0px rgba(211,211,211,1)"}
                             alignItems={"center"}
                             justifyContent={"center"}
                             >
-                                <Box
+                                {/* <Box
                                     w={"495px"}
                                     h={"100px"}
                                     borderRadius={"100px"}
@@ -118,7 +129,7 @@ const Otetudaimodal  = (props : propsType ) => {
                                         left:"-1",
                                         w:"100%",
                                         h:"100%",
-                                        bgColor:"#D2CCFF",
+                                        bgColor:`${colorarray[props.setCategoryIndex].color.map((en) => en.main)}`,
                                         display:"block",
                                         opacity:"0.5",
                                         zIndex:"-1",
@@ -131,7 +142,7 @@ const Otetudaimodal  = (props : propsType ) => {
                                         left:"1",
                                         w:"100%",
                                         h:"100%",
-                                        bgColor:"#6148BE",
+                                        bgColor:`${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}`,
                                         display:"block",
                                         opacity:"1",
                                         zIndex:"-1",
@@ -139,7 +150,9 @@ const Otetudaimodal  = (props : propsType ) => {
                                     >
                                     <Box as={"img"} src="./img/btn_ilust.svg" zIndex={"100"} position={"absolute"} top={"13px"} left={"13px"}></Box>
                                     <Text fontSize={"36px"} color={"#fffffb"}>おてつだいに設定する</Text>
-                                </Box>
+                                </Box> */}
+                            <Modalbtn borderw={"625px"} w={"495px"} abg={`${colorarray[props.setCategoryIndex].color.map((en) => en.main)}`} bbg={`${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}`} text="お手伝いに設定する" setAfter={setAfter} display={after} />
+                            <Text display={textdis} fontSize={"40px"} color={`${colorarray[props.setCategoryIndex].color.map((en) => en.sub)}`  }>お手伝いに設定しました！</Text>
                         </Flex>
                         <Flex
                             w={"64px"}

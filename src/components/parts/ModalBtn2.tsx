@@ -11,17 +11,21 @@ interface ModalProps {
     borderh: string;
     h: string;
     fs: string;
-    click: any;
-
+    // btnText:any;
+    setAfter:any;
+    display:string;
 };
 
 
-const logon = () => {
-    console.log("クリックした");
-}
 
 const Modalbtn = (props :  ModalProps ) => {
 
+
+    
+    const logon = () => {
+        console.log("クリックした");
+        props.setAfter("none")
+    }
 
     return (
         <Flex 
@@ -32,6 +36,8 @@ const Modalbtn = (props :  ModalProps ) => {
             boxShadow={"0px 6px 0px rgba(211,211,211,1)"}
             alignItems={"center"}
             justifyContent={"center"}
+            onClick={logon}
+            display={props.display}
             >
             <Box
                 w={props.w}
@@ -44,7 +50,6 @@ const Modalbtn = (props :  ModalProps ) => {
                 display={"flex"}
                 alignItems={"center"}
                 justifyContent={"center"}
-                onClick={props.click}
                 _after={{
                     content:`""`,
                     position:"absolute",
@@ -83,7 +88,6 @@ Modalbtn.defaultProps ={
     borderh:"108px",
     h:"100px",
     fs:"40px",
-    click:logon,
 }
 
 export default Modalbtn

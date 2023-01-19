@@ -28,13 +28,16 @@ const OtetudaiArray : NextPage = () => {
 
 		const [zin,setZin] = useState("-10")
 		const [opa,setOpa] = useState("0")
-		const [bordercolor,setBorderColor] = useState()
+		const [categoryIndex,setCategoryIndex] = useState(0)
+		const [otetsudaiIndex,setOtetsudaiIndex] = useState(0)
 
 		const btnClick = (ev : any,categoryIndex:number,otetsudaiIndex:number) => {
 			setZin("10")
 			setOpa("1")
 			console.log(categoryIndex);
 			console.log(otetsudaiIndex);
+			setCategoryIndex(categoryIndex);
+			setOtetsudaiIndex(otetsudaiIndex);
 			// setTimeout(() =>{
 			// 	setZin("-10")
 			// 	setOpa("0")
@@ -138,7 +141,7 @@ const OtetudaiArray : NextPage = () => {
 					</Flex>
 				</Box>
 			</Box>
-			<Modal zindex={zin} opacity={opa} setZin={setZin} setOpa={setOpa}/>
+			<Modal zindex={zin} opacity={opa} setZin={setZin} setOpa={setOpa} setCategoryIndex={categoryIndex} setOtetsudaiIndex={otetsudaiIndex} />
 		</Box>
     );
 }

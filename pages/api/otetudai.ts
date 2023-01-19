@@ -39,7 +39,7 @@ const otetudai : otetudaiArray = {
     ArrayList:[
         {
         color : [{
-            main:"#F2B950",
+            main:ColorArray[1],
             sub:ColorArray[2],
         }],
         img : "./img/cateTitle1.svg",
