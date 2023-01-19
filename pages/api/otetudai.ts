@@ -1,4 +1,5 @@
 import { CateFile, StarFile, otetudaiArray,ImgFile } from "../../src/types/otetudaiType"
+import Theme from "../../src/theme"
 
 const StarArray : StarFile = {
     1:"./img/1star.svg",
@@ -21,9 +22,14 @@ const ImgArray : ImgFile = {
     5: "./img/cateTitle5.svg",
 }
 
+// const ColorArray : colorFile = {
+
+// }
+
 const otetudai : otetudaiArray = {
     ArrayList:[
         {
+        color : Theme.colors.orange300,
         img : "./img/cateTitle1.svg",
         groupName : "キッチン",
         categoryAbout : [{
@@ -63,6 +69,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[3],
         },],},
         {
+        color : Theme.colors.green300,
         img : "./img/cateTitle2.svg",
         groupName : "リビング",
         categoryAbout : [{
@@ -92,6 +99,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[2],
         },],},
         {
+        color : Theme.colors.skyblue300,
         img : "./img/cateTitle3.svg",
         groupName : "お風呂・トイレ",
         categoryAbout : [{
@@ -111,6 +119,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[1],
         },],},
         {
+        color : Theme.colors,
         img : "./img/cateTitle4.svg",
         groupName : "お洗濯",
         categoryAbout : [{
@@ -145,6 +154,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[2],
         },],},
         {
+        color : Theme.colors,
         img : "./img/cateTitle5.svg",
         groupName : "その他",
         categoryAbout : [{

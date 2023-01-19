@@ -27,7 +27,12 @@ export type otetudaiType = {
     categoryStar : string;
 }
 
+export type colorFile = {
+
+}
+
 export type group = {
+    color : string
     img : string;
     groupName : string;
     categoryAbout : otetudaiType[];
