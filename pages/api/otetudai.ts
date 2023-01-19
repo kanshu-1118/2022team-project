@@ -1,4 +1,4 @@
-import { CateFile, StarFile, otetudaiArray } from "../../src/types/otetudaiType"
+import { CateFile, StarFile, otetudaiArray,ImgFile } from "../../src/types/otetudaiType"
 
 const StarArray : StarFile = {
     1:"./img/1star.svg",
@@ -13,9 +13,18 @@ const CateArray : CateFile = {
     5: "./img/icon_other.svg",
 }
 
+const ImgArray : ImgFile = {
+    1: "./img/cateTitle1.svg",
+    2: "./img/cateTitle2.svg",
+    3: "./img/cateTitle3.svg",
+    4: "./img/cateTitle4.svg",
+    5: "./img/cateTitle5.svg",
+}
+
 const otetudai : otetudaiArray = {
     ArrayList:[
         {
+        img : "./img/cateTitle1.svg",
         groupName : "キッチン",
         categoryAbout : [{
             categoryName: "お皿を洗う",
@@ -54,6 +63,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[3],
         },],},
         {
+        img : "./img/cateTitle2.svg",
         groupName : "リビング",
         categoryAbout : [{
             categoryName: "おもちゃを\n片付ける",
@@ -82,6 +92,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[2],
         },],},
         {
+        img : "./img/cateTitle3.svg",
         groupName : "お風呂・トイレ",
         categoryAbout : [{
             categoryName: "お風呂掃除",
@@ -100,6 +111,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[1],
         },],},
         {
+        img : "./img/cateTitle4.svg",
         groupName : "お洗濯",
         categoryAbout : [{
             categoryName: "洗濯をする",
@@ -133,6 +145,7 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[2],
         },],},
         {
+        img : "./img/cateTitle5.svg",
         groupName : "その他",
         categoryAbout : [{
             categoryName: "ペットの\nお世話",

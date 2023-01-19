@@ -6,6 +6,14 @@ export type CateFile = {
     5:string;
 }
 
+export type ImgFile = {
+    1:string;
+    2:string;
+    3:string;
+    4:string;
+    5:string;
+}
+
 export type StarFile = {
     1:string;
     2:string;
@@ -20,6 +28,7 @@ export type otetudaiType = {
 }
 
 export type group = {
+    img : string;
     groupName : string;
     categoryAbout : otetudaiType[];
 }

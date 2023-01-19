@@ -4,7 +4,7 @@ import OtetsudaiBtn from '../src/components/OtetsudaiBtn';
 import OtetsudaiAdd from '../src/components/OtetsudaiAdd';
 import otatudaicategory from './OtetudaiArray';
 import OtetudaiArray from './OtetudaiArray';
-import OtetudaiModal from '../src/components/parents/OtetsudaiModal';
+import OtetudaiModal from '../src/components/parents/otetudaimodal';
 import OtetudaiCateBtn from '../src/components/OtetudaiCateBtn';
 import OtetudaiModalKanryou from '../src/components/parents/OtetsudaiModalKanryou';
 import Array from "./api/otetudai"

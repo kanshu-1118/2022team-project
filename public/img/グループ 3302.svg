@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111" height="52" viewBox="0 0 111 52">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_1456" data-name="長方形 1456" width="111" height="52" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="グループ_3302" data-name="グループ 3302" transform="translate(-15 -43)">
+    <g id="グループ_3301" data-name="グループ 3301" transform="translate(15 43)">
+      <g id="グループ_3300" data-name="グループ 3300" clip-path="url(#clip-path)">
+        <path id="パス_28684" data-name="パス 28684" d="M26,0H85a26,26,0,0,1,0,52H26A26,26,0,0,1,26,0" fill="#f2798f"/>
+        <path id="パス_28685" data-name="パス 28685" d="M111,26A26,26,0,0,1,85,52H26A25.923,25.923,0,0,1,6.65,43.37,25.919,25.919,0,0,0,24,50H83A26,26,0,0,0,102.35,6.63,25.964,25.964,0,0,1,111,26" fill="#ed4076"/>
+        <path id="パス_28686" data-name="パス 28686" d="M104.35,8.63A25.919,25.919,0,0,0,87,2H28A26,26,0,0,0,8.65,45.37,26,26,0,0,1,26,0H85a25.923,25.923,0,0,1,19.35,8.63" fill="#fdadb6"/>
+      </g>
+    </g>
+    <path id="Icon_ionic-md-arrow-round-back" data-name="Icon ionic-md-arrow-round-back" d="M22.177,13.23H11.156l4.275-4.089a1.7,1.7,0,0,0,0-2.328,1.523,1.523,0,0,0-2.225,0l-7.117,6.9a1.569,1.569,0,0,0-.464,1.154v.021a1.569,1.569,0,0,0,.464,1.154l7.112,6.9a1.523,1.523,0,0,0,2.225,0,1.7,1.7,0,0,0,0-2.328l-4.275-4.089H22.172a1.612,1.612,0,0,0,1.576-1.648A1.6,1.6,0,0,0,22.177,13.23Z" transform="translate(21.218 55.097)" fill="#fff"/>
+    <text id="もどる" transform="translate(52 77)" fill="#fff" font-size="20" font-family="rounded-mplus-2p-heavy, 'Rounded M\+ \32 p'" font-weight="800"><tspan x="0" y="0">もどる</tspan></text>
+  </g>
+</svg>

@@ -1,9 +1,23 @@
-import { Box, Center, Flex, Text } from '@chakra-ui/react';
-import { NextComponentType } from 'next';
-import React from 'react'
+import { Box, Center, Flex, position, Text } from '@chakra-ui/react';
+import { NextComponentType, NextPage } from 'next';
+import React, { useState } from 'react'
 import otetudai from '../../../pages/api/otetudai'
 
-const OtetudaiArray : NextComponentType = () => {
+interface propsType {
+    zindex:string
+    opacity:string
+    setZin:any
+    setOpa:any
+}
+
+const Otetudaimodal  = (props : propsType ) => {
+
+    const [dis,setDis] = useState("Flex")
+
+    const backClick = () => {
+        props.setZin("-10")
+        props.setOpa("0")
+    }
 
     const CateArray = otetudai.ArrayList;    
 		const colorTheme = () => {
@@ -29,6 +43,12 @@ const OtetudaiArray : NextComponentType = () => {
                 bgColor={"blackAlpha.700"}
                 alignItems={"center"}
                 justifyContent={"center"}
+                position="absolute"
+                top={"0"}
+                zIndex={props.zindex}
+                opacity={props.opacity}
+                transition=" 0.5s ease "
+                display={dis}
                 >
                 <Flex
                     w={"812px"}
@@ -130,6 +150,7 @@ const OtetudaiArray : NextComponentType = () => {
                             right={"24px"}
                             alignItems="center"
                             justifyContent="center"
+                            onClick={backClick}
                             >
                             <Box as='img' src='./img/backBtn_batu.svg' w={"28px"}></Box>
                         </Flex>
@@ -139,4 +160,9 @@ const OtetudaiArray : NextComponentType = () => {
     );
 }
 
-export default OtetudaiArray
+Otetudaimodal.defaultProps ={
+    zindex:"-100",
+    opacity:"0"
+}
+
+export default Otetudaimodal
