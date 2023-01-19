@@ -28,11 +28,24 @@ export type otetudaiType = {
 }
 
 export type colorFile = {
-
+    1:string;
+    2:string;
+    3:string;
+    4:string;
+    5:string;
+    6:string;
+    7:string;
+    8:string;
+    9:string;
+    10:string;
+}
+export type colorType = {
+    main:string;
+    sub:string;
 }
 
 export type group = {
-    color : string
+    color : colorType[];
     img : string;
     groupName : string;
     categoryAbout : otetudaiType[];

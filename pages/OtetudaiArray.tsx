@@ -9,29 +9,32 @@ const OtetudaiArray : NextPage = () => {
 
     const CateArray = otetudai.ArrayList;
     
-		const colorTheme = () => {
-			CateArray.map((e) => {
-				if (e.groupName == "キッチン") {
-					console.log("キッチン")
-				}else if (e.groupName == "リビング") {
-					console.log("リビング")
-				}else if (e.groupName == "お風呂・トイレ") {
-					console.log("お風呂・トイレ")
-				}else if (e.groupName == "お洗濯") {
-					console.log("お洗濯")
-				}else if (e.groupName == "その他") {
-					console.log("その他")
-				}
-			})
-		}
-		colorTheme()
+		// const colorTheme = () => {
+		// 	CateArray.map((e) => {
+		// 		if (e.groupName == "キッチン") {
+		// 			console.log("キッチン")
+		// 		}else if (e.groupName == "リビング") {
+		// 			console.log("リビング")
+		// 		}else if (e.groupName == "お風呂・トイレ") {
+		// 			console.log("お風呂・トイレ")
+		// 		}else if (e.groupName == "お洗濯") {
+		// 			console.log("お洗濯")
+		// 		}else if (e.groupName == "その他") {
+		// 			console.log("その他")
+		// 		}
+		// 	})
+		// }
+		// colorTheme()
 
 		const [zin,setZin] = useState("-10")
 		const [opa,setOpa] = useState("0")
+		const [bordercolor,setBorderColor] = useState()
 
-		const btnClick = () => {
+		const btnClick = (ev : any) => {
 			setZin("10")
 			setOpa("1")
+			console.log(ev.target.style.border);
+			
 			// setTimeout(() =>{
 			// 	setZin("-10")
 			// 	setOpa("0")
@@ -101,7 +104,7 @@ const OtetudaiArray : NextPage = () => {
 											minH={"80px"}
 											key={i}
 											bgColor={"#FCFBF7"}
-											border={`4px solid #F29A2E`}
+											border={`4px solid ${e.color.map((en) => en.main)}`}
 											borderRadius={"20px"}
 											alignItems={"center"}
 											gap={"8px"}
@@ -122,10 +125,10 @@ const OtetudaiArray : NextPage = () => {
 												zIndex:"1",
 											}}
 											>
-											<Center w={"50px"} h={"50px"} bgColor={"#F2B950"} borderRadius={"50px"} zIndex={0}>
+											<Center w={"50px"} h={"50px"} bgColor={`${e.color.map((en) => en.main)}`} borderRadius={"50px"} zIndex={0}>
 												<Box objectFit={"cover"} as='img' src={ex.categoryImg} alt="キッチン" />
 											</Center>
-											<Text whiteSpace={"pre-wrap"} color={"#F29A2E"} fontSize={"24px"} fontWeight={"200"} lineHeight={"28px"} zIndex={0}>{ex.categoryName}</Text>
+											<Text whiteSpace={"pre-wrap"} color={`${e.color.map((en) => en.sub)}`} fontSize={"24px"} fontWeight={"200"} lineHeight={"28px"} zIndex={0}>{ex.categoryName}</Text>
 											<Flex as="img" src={ex.categoryStar} alt="星" marginLeft={"auto"} zIndex={0}></Flex>
 										</Flex>
 									)}

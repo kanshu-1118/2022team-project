@@ -1,4 +1,4 @@
-import { CateFile, StarFile, otetudaiArray,ImgFile } from "../../src/types/otetudaiType"
+import { CateFile, StarFile, otetudaiArray,ImgFile ,colorFile } from "../../src/types/otetudaiType"
 import Theme from "../../src/theme"
 
 const StarArray : StarFile = {
@@ -22,14 +22,26 @@ const ImgArray : ImgFile = {
     5: "./img/cateTitle5.svg",
 }
 
-// const ColorArray : colorFile = {
-
-// }
+const ColorArray : colorFile = {
+    1: "#F2B950",
+    2: "#F29A2E",
+    3: "#27CFBE",
+    4: "#04AFAA",
+    5: "#36C8D9",
+    6: "#049DD9",
+    7: "#F25C5C",
+    8: "#EA4242",
+    9: "#826AD9",
+    10: "#6148BE",
+}
 
 const otetudai : otetudaiArray = {
     ArrayList:[
         {
-        color : Theme.colors.orange300,
+        color : [{
+            main:"#F2B950",
+            sub:ColorArray[2],
+        }],
         img : "./img/cateTitle1.svg",
         groupName : "キッチン",
         categoryAbout : [{
@@ -69,7 +81,10 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[3],
         },],},
         {
-        color : Theme.colors.green300,
+        color : [{
+            main:ColorArray[3],
+            sub:ColorArray[4],
+        }],
         img : "./img/cateTitle2.svg",
         groupName : "リビング",
         categoryAbout : [{
@@ -99,7 +114,10 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[2],
         },],},
         {
-        color : Theme.colors.skyblue300,
+        color : [{
+            main:ColorArray[5],
+            sub:ColorArray[6],
+        }],
         img : "./img/cateTitle3.svg",
         groupName : "お風呂・トイレ",
         categoryAbout : [{
@@ -119,7 +137,10 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[1],
         },],},
         {
-        color : Theme.colors,
+        color : [{
+            main:ColorArray[7],
+            sub:ColorArray[8],
+        }],
         img : "./img/cateTitle4.svg",
         groupName : "お洗濯",
         categoryAbout : [{
@@ -154,7 +175,10 @@ const otetudai : otetudaiArray = {
             categoryStar: StarArray[2],
         },],},
         {
-        color : Theme.colors,
+        color : [{
+            main:ColorArray[9],
+            sub:ColorArray[10],
+        }],
         img : "./img/cateTitle5.svg",
         groupName : "その他",
         categoryAbout : [{
