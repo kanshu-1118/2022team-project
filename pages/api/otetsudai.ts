@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { otetsudaiType } from '../../src/types/otetsudai';
+import NextCors from 'nextjs-cors';
 
 const KITCHEN_INDEX = 0;
 const LIVING_INDEX = 1;
@@ -8,10 +9,15 @@ const BATHROOM_INDEX = 2;
 const WASHING_INDEX = 3;
 const OTHER_INDEX = 4;
 
-export default function otetsudaiApi(
+export default async function otetsudaiApi(
   req: NextApiRequest,
   res: NextApiResponse<otetsudaiType[]>
 ) {
+  await NextCors(req, res, {
+    methods: ['GET'],
+    origin: '*',
+    optionSuccessStatus: 200,
+  });
   res.status(200).json([
     {
       kanji: {
