@@ -76,40 +76,42 @@ const ParentsStart: NextPage = () => {
     setFirebaseCheckData(retCheck[0]);
   };
   const firebaseUser = async (api: any) => {
-    const colUser = collection(db, 'user');
-    const querySnapshotUser = await getDocs(colUser);
-    const retUser: any = [];
-    querySnapshotUser.forEach((doc) => {
-      retUser.push(doc.data());
-    });
-    setFireBaseUserData(retUser[0]);
-
-    let rcmDataArray = [];
-    let newRcmDataArray = [];
-    let newRcmDataModalArray = [];
-    for (let i = 0; i < api.length; i++) {
-      if (retUser[0].age <= 4 && api[i].level === 1) {
-        rcmDataArray.push(i);
-      } else if (retUser[0].age === 5 && api[i].level === 2) {
-        rcmDataArray.push(i);
-      } else if (retUser[0].age === 6 && api[i].level === 2) {
-        rcmDataArray.push(i);
-      } else if (retUser[0].age >= 7 && api[i].level === 3) {
-        rcmDataArray.push(i);
+    if(api){
+      const colUser = collection(db, 'user');
+      const querySnapshotUser = await getDocs(colUser);
+      const retUser: any = [];
+      querySnapshotUser.forEach((doc) => {
+        retUser.push(doc.data());
+      });
+      setFireBaseUserData(retUser[0]);
+  
+      let rcmDataArray = [];
+      let newRcmDataArray = [];
+      let newRcmDataModalArray = [];
+      for (let i = 0; i < api.length; i++) {
+        if (retUser[0].age <= 4 && api[i].level === 1) {
+          rcmDataArray.push(i);
+        } else if (retUser[0].age === 5 && api[i].level === 2) {
+          rcmDataArray.push(i);
+        } else if (retUser[0].age === 6 && api[i].level === 2) {
+          rcmDataArray.push(i);
+        } else if (retUser[0].age >= 7 && api[i].level === 3) {
+          rcmDataArray.push(i);
+        }
       }
+      for (let i = 0; i < 3; i++) {
+        newRcmDataArray.push(
+          rcmDataArray[Math.floor(Math.random() * rcmDataArray.length) + 1]
+        );
+      }
+      for (let i = 0; i < 4; i++) {
+        newRcmDataModalArray.push(
+          rcmDataArray[Math.floor(Math.random() * rcmDataArray.length) + 1]
+        );
+      }
+      setRecommendModalData(newRcmDataModalArray);
+      setRecommendData(newRcmDataArray);
     }
-    for (let i = 0; i < 3; i++) {
-      newRcmDataArray.push(
-        rcmDataArray[Math.floor(Math.random() * rcmDataArray.length) + 1]
-      );
-    }
-    for (let i = 0; i < 4; i++) {
-      newRcmDataModalArray.push(
-        rcmDataArray[Math.floor(Math.random() * rcmDataArray.length) + 1]
-      );
-    }
-    setRecommendModalData(newRcmDataModalArray);
-    setRecommendData(newRcmDataArray);
   };
 
   useEffect(() => {
@@ -335,7 +337,6 @@ const ParentsStart: NextPage = () => {
             <Box bg="pink300" borderColor="pink500" textStyle="boxBgTemplate" />
           </Box>
         )}
-        ;
       </>
     );
   };
